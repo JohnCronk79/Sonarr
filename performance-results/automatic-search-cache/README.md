@@ -14,6 +14,7 @@ Full Turbo is the name used in this report when all of the following changes are
 - Removes obsolete cache entries after a successful import, with a one-hour expiry as a fallback[^2]
 - Adds settings to change the polling rate and cache size
 - Added a section in System | Status which shows how the cache is performing, API calls saved, cache misses and estimated time saved
+- All metrics in the status page also have a tooltip that explains what that metric is used for
 
 Stock means:
 

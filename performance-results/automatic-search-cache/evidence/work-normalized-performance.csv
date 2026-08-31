@@ -1,0 +1,24 @@
+Comparison,Metric,Stock_or_60s,Turbo_or_15s,Result
+Direct overall,Total SAB attempts,140,187,47 additional attempts
+Direct overall,Successful SAB jobs,115,116,1 additional completion
+Direct overall,Attempts per hour,292.9,432.9,47.8% higher
+Direct overall,Successful jobs per hour,240.6,268.6,11.6% higher
+Direct overall,Seconds per successful job,14.97,13.41,10.4% lower
+Direct overall,Effective end-to-end MB/s,91.7,110.7,20.7% higher
+Direct overall,SAB utilization percent,62.7,89.5,26.8 percentage points higher
+Clean polling A/B,SAB attempts,187,187,Identical work count
+Clean polling A/B,Successful SAB jobs,116,116,Identical useful output
+Clean polling A/B,Overall seconds,1785,1555,230 seconds faster
+Clean polling A/B,SAB idle seconds,321,163,49.2% lower
+Clean polling A/B,Attempts per hour,377.1,432.9,14.8% higher
+Clean polling A/B,Successful jobs per hour,233.9,268.6,14.8% higher
+Clean polling A/B,Seconds per successful job,15.39,13.41,12.9% lower
+Clean polling A/B,Effective end-to-end MB/s,96.3,110.7,14.9% higher
+Balanced model,Median SAB attempts,9008,9301,293 additional attempts
+Balanced model,Median successful episodes,3551,3556.2,5.2 additional recoveries
+Balanced model,Attempts per hour,1503.2,1550.0,3.1% higher
+Balanced model,Successful episodes per hour,592.59,592.62,Equal at bandwidth ceiling
+Balanced model,Seconds per successful episode,6.0751,6.0747,No additional time per useful result
+Balanced model,External API calls per success,8.98,2.26,74.9% lower
+Balanced model,Successful episodes per 1000 external calls,111,444,Approximately 4 times more API-efficient
+Balanced model,Median SAB idle seconds,65,23,Approximately 65% lower

@@ -124,6 +124,18 @@ namespace NzbDrone.Core.Configuration
             set { SetValue("MinimumAge", value); }
         }
 
+        public bool EnableAutomaticSearchResultCache
+        {
+            get { return GetValueBoolean("EnableAutomaticSearchResultCache", false); }
+            set { SetValue("EnableAutomaticSearchResultCache", value); }
+        }
+
+        public int AutomaticSearchCacheSize
+        {
+            get { return Math.Min(16384, Math.Max(128, GetValueInt("AutomaticSearchCacheSize", 256))); }
+            set { SetValue("AutomaticSearchCacheSize", value); }
+        }
+
         public ProperDownloadTypes DownloadPropersAndRepacks
         {
             get { return GetValueEnum("DownloadPropersAndRepacks", ProperDownloadTypes.PreferAndUpgrade); }
@@ -150,6 +162,19 @@ namespace NzbDrone.Core.Configuration
             get { return GetValueBoolean("AutoRedownloadFailedFromInteractiveSearch", true); }
 
             set { SetValue("AutoRedownloadFailedFromInteractiveSearch", value); }
+        }
+
+        public int DownloadClientPollingInterval
+        {
+            get { return Math.Min(300, Math.Max(5, GetValueInt("DownloadClientPollingInterval", 60))); }
+
+            set { SetValue("DownloadClientPollingInterval", value); }
+        }
+
+        public bool EnableCustomDownloadClientPollingInterval
+        {
+            get { return GetValueBoolean("EnableCustomDownloadClientPollingInterval", false); }
+            set { SetValue("EnableCustomDownloadClientPollingInterval", value); }
         }
 
         public bool CreateEmptySeriesFolders

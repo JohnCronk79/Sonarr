@@ -10,6 +10,8 @@ namespace Sonarr.Api.V3.Config
         public bool EnableCompletedDownloadHandling { get; set; }
         public bool AutoRedownloadFailed { get; set; }
         public bool AutoRedownloadFailedFromInteractiveSearch { get; set; }
+        public bool EnableCustomDownloadClientPollingInterval { get; set; }
+        public int DownloadClientPollingInterval { get; set; }
     }
 
     public static class DownloadClientConfigResourceMapper
@@ -22,7 +24,9 @@ namespace Sonarr.Api.V3.Config
 
                 EnableCompletedDownloadHandling = model.EnableCompletedDownloadHandling,
                 AutoRedownloadFailed = model.AutoRedownloadFailed,
-                AutoRedownloadFailedFromInteractiveSearch = model.AutoRedownloadFailedFromInteractiveSearch
+                AutoRedownloadFailedFromInteractiveSearch = model.AutoRedownloadFailedFromInteractiveSearch,
+                EnableCustomDownloadClientPollingInterval = model.EnableCustomDownloadClientPollingInterval,
+                DownloadClientPollingInterval = model.DownloadClientPollingInterval
             };
         }
     }

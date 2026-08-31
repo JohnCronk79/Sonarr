@@ -7,11 +7,13 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
+using NzbDrone.Core.Configuration;
 using NzbDrone.Core.DataAugmentation.Scene;
 using NzbDrone.Core.DecisionEngine;
 using NzbDrone.Core.Indexers;
 using NzbDrone.Core.IndexerSearch;
 using NzbDrone.Core.IndexerSearch.Definitions;
+using NzbDrone.Core.Parser.Model;
 using NzbDrone.Core.Test.Framework;
 using NzbDrone.Core.Tv;
 
@@ -649,6 +651,72 @@ namespace NzbDrone.Core.Test.IndexerSearchTests
             allCriteria.Last().Should().BeOfType<SingleEpisodeSearchCriteria>();
             allCriteria.Last().As<SingleEpisodeSearchCriteria>().SeasonNumber.Should().Be(2);
             allCriteria.Last().As<SingleEpisodeSearchCriteria>().EpisodeNumber.Should().Be(3);
+        }
+
+        [Test]
+        public async Task cached_reports_should_be_reprocessed_without_querying_the_indexer_when_approved()
+        {
+            WithEpisode(1, 1, null, null);
+            var release = new ReleaseInfo { Guid = "cached", Title = "Example.S01E01" };
+            var decision = new DownloadDecision(new Parser.Model.RemoteEpisode { Release = release });
+
+            Mocker.GetMock<IConfigService>()
+                .SetupGet(v => v.EnableAutomaticSearchResultCache)
+                .Returns(true);
+
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Setup(v => v.GetKey(_mockIndexer.Object, It.IsAny<SearchCriteriaBase>()))
+                .Returns("key");
+
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Setup(v => v.GetOrFetch("key", It.IsAny<IEnumerable<int>>(), It.IsAny<Func<Task<IList<ReleaseInfo>>>>(), false))
+                .ReturnsAsync(new AutomaticSearchCacheResult(new List<ReleaseInfo> { release }, true));
+
+            Mocker.GetMock<IMakeDownloadDecision>()
+                .Setup(v => v.GetSearchDecision(It.IsAny<List<ReleaseInfo>>(), It.IsAny<SearchCriteriaBase>()))
+                .Returns(new List<DownloadDecision> { decision });
+
+            await Subject.EpisodeSearch(_xemEpisodes.First(), false, false);
+
+            _mockIndexer.Verify(v => v.Fetch(It.IsAny<SingleEpisodeSearchCriteria>()), Times.Never());
+            Mocker.GetMock<IMakeDownloadDecision>()
+                .Verify(v => v.GetSearchDecision(It.Is<List<ReleaseInfo>>(r => r.Single().Guid == "cached"), It.IsAny<SearchCriteriaBase>()), Times.Once());
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Verify(v => v.GetOrFetch("key", It.IsAny<IEnumerable<int>>(), It.IsAny<Func<Task<IList<ReleaseInfo>>>>(), true), Times.Never());
+        }
+
+        [Test]
+        public async Task exhausted_cached_reports_should_trigger_one_fresh_indexer_query()
+        {
+            WithEpisode(1, 1, null, null);
+            var release = new ReleaseInfo { Guid = "cached", Title = "Example.S01E01" };
+
+            _mockIndexer.Setup(v => v.Fetch(It.IsAny<SingleEpisodeSearchCriteria>()))
+                .ReturnsAsync(new List<ReleaseInfo>());
+
+            Mocker.GetMock<IConfigService>()
+                .SetupGet(v => v.EnableAutomaticSearchResultCache)
+                .Returns(true);
+
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Setup(v => v.GetKey(_mockIndexer.Object, It.IsAny<SearchCriteriaBase>()))
+                .Returns("key");
+
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Setup(v => v.GetOrFetch("key", It.IsAny<IEnumerable<int>>(), It.IsAny<Func<Task<IList<ReleaseInfo>>>>(), false))
+                .ReturnsAsync(new AutomaticSearchCacheResult(new List<ReleaseInfo> { release }, true));
+
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Setup(v => v.GetOrFetch("key", It.IsAny<IEnumerable<int>>(), It.IsAny<Func<Task<IList<ReleaseInfo>>>>(), true))
+                .Returns<string, IEnumerable<int>, Func<Task<IList<ReleaseInfo>>>, bool>(async (_, _, fetch, _) => new AutomaticSearchCacheResult(await fetch(), false));
+
+            await Subject.EpisodeSearch(_xemEpisodes.First(), false, false);
+
+            _mockIndexer.Verify(v => v.Fetch(It.IsAny<SingleEpisodeSearchCriteria>()), Times.Once());
+            Mocker.GetMock<IAutomaticSearchResultCache>()
+                .Verify(v => v.GetOrFetch("key", It.IsAny<IEnumerable<int>>(), It.IsAny<Func<Task<IList<ReleaseInfo>>>>(), true), Times.Once());
+            Mocker.GetMock<IMakeDownloadDecision>()
+                .Verify(v => v.GetSearchDecision(It.IsAny<List<ReleaseInfo>>(), It.IsAny<SearchCriteriaBase>()), Times.Exactly(2));
         }
     }
 }

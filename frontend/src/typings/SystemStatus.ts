@@ -1,4 +1,19 @@
 interface SystemStatus {
+  automaticSearchCacheEnabled: boolean;
+  automaticSearchCacheSizeMb: number;
+  automaticSearchCacheUsedBytes: number;
+  automaticSearchCacheSearches: number;
+  automaticSearchCacheReports: number;
+  automaticSearchCacheHits: number;
+  automaticSearchCacheMisses: number;
+  automaticSearchCacheSearchesDropped: number;
+  automaticSearchCacheApiCalls: number;
+  automaticSearchCacheApiCallsSaved: number;
+  automaticSearchCachePeakUsedBytes: number;
+  automaticSearchCacheHitRate: number;
+  automaticSearchCacheTimeSavedMilliseconds: number;
+  automaticSearchPollingWaitSavedMilliseconds: number;
+  automaticSearchObservedTimeMilliseconds: number;
   appData: string;
   appName: string;
   authentication: string;

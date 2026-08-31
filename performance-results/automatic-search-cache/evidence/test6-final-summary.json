@@ -1,0 +1,161 @@
+{
+  "classification": "OFFICIAL_TEST_6_1011_EPISODES_CACHE_4096MB_8884_POLLING_15S",
+  "launchedAt": "08/29/2026 05:00:19",
+  "finalizedAt": "2026-08-29T07:37:55.2760459-06:00",
+  "evidenceFolder": "/volume1/Docker/02-Scripts/Media-Server/sonarr-cache-benchmark/run-6-1011-series-cache-4096mb-8884-polling-15s-2026-08-29_10-59-56-MDT",
+  "seriesCount": 16,
+  "episodeCount": 1011,
+  "episodesWithFiles": 620,
+  "episodesMissing": 391,
+  "commandStatuses": [
+    {
+      "id": 917879,
+      "seriesId": 415,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:19Z",
+      "started": "2026-08-29T11:00:19Z",
+      "ended": "2026-08-29T11:15:25Z"
+    },
+    {
+      "id": 917880,
+      "seriesId": 382,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:19Z",
+      "started": "2026-08-29T11:00:19Z",
+      "ended": "2026-08-29T11:12:33Z"
+    },
+    {
+      "id": 917881,
+      "seriesId": 510,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:19Z",
+      "started": "2026-08-29T11:00:20Z",
+      "ended": "2026-08-29T11:00:34Z"
+    },
+    {
+      "id": 917882,
+      "seriesId": 88,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:00:34Z",
+      "ended": "2026-08-29T11:01:12Z"
+    },
+    {
+      "id": 917884,
+      "seriesId": 338,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:01:12Z",
+      "ended": "2026-08-29T11:25:17Z"
+    },
+    {
+      "id": 917885,
+      "seriesId": 103,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:15:27Z",
+      "ended": "2026-08-29T11:24:42Z"
+    },
+    {
+      "id": 917886,
+      "seriesId": 117,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:21:34Z",
+      "ended": "2026-08-29T11:32:25Z"
+    },
+    {
+      "id": 917887,
+      "seriesId": 123,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:24:44Z",
+      "ended": "2026-08-29T11:25:28Z"
+    },
+    {
+      "id": 917888,
+      "seriesId": 581,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:25:18Z",
+      "ended": "2026-08-29T11:26:43Z"
+    },
+    {
+      "id": 917889,
+      "seriesId": 597,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:25:29Z",
+      "ended": "2026-08-29T11:26:37Z"
+    },
+    {
+      "id": 917890,
+      "seriesId": 365,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:26:43Z",
+      "ended": "2026-08-29T11:30:47Z"
+    },
+    {
+      "id": 917891,
+      "seriesId": 187,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:30:48Z",
+      "ended": "2026-08-29T11:36:17Z"
+    },
+    {
+      "id": 917892,
+      "seriesId": 676,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:32:26Z",
+      "ended": "2026-08-29T11:42:46Z"
+    },
+    {
+      "id": 917893,
+      "seriesId": 289,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:36:18Z",
+      "ended": "2026-08-29T11:41:18Z"
+    },
+    {
+      "id": 917894,
+      "seriesId": 628,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:41:20Z",
+      "ended": "2026-08-29T11:42:59Z"
+    },
+    {
+      "id": 917895,
+      "seriesId": 233,
+      "status": "completed",
+      "queued": "2026-08-29T11:00:20Z",
+      "started": "2026-08-29T11:42:48Z",
+      "ended": "2026-08-29T11:57:42Z"
+    }
+  ],
+  "sonarrQueueCount": 0,
+  "sonarrBlocklistCount": 416,
+  "sabQueueCount": 0,
+  "sabHistoryCount": 983,
+  "sabStatuses": {
+    "Completed": 517,
+    "Failed": 466
+  },
+  "automaticSearchCache": {
+    "sizeMB": 4096,
+    "usedBytes": 2518932518,
+    "peakUsedBytes": 2518932518,
+    "cachedSearches": 1900,
+    "cachedReports": 217933,
+    "hits": 1411,
+    "misses": 1900,
+    "hitRate": 42.6,
+    "searchesDropped": 0,
+    "apiCalls": 3644,
+    "apiCallsSaved": 2339
+  }
+}

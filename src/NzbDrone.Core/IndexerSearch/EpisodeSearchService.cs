@@ -20,6 +20,7 @@ namespace NzbDrone.Core.IndexerSearch
     {
         private readonly ISearchForReleases _releaseSearchService;
         private readonly IProcessDownloadDecisions _processDownloadDecisions;
+        private readonly IAutomaticSearchResultCache _automaticSearchResultCache;
         private readonly IEpisodeService _episodeService;
         private readonly IEpisodeCutoffService _episodeCutoffService;
         private readonly IQueueService _queueService;
@@ -27,6 +28,7 @@ namespace NzbDrone.Core.IndexerSearch
 
         public EpisodeSearchService(ISearchForReleases releaseSearchService,
                                     IProcessDownloadDecisions processDownloadDecisions,
+                                    IAutomaticSearchResultCache automaticSearchResultCache,
                                     IEpisodeService episodeService,
                                     IEpisodeCutoffService episodeCutoffService,
                                     IQueueService queueService,
@@ -34,6 +36,7 @@ namespace NzbDrone.Core.IndexerSearch
         {
             _releaseSearchService = releaseSearchService;
             _processDownloadDecisions = processDownloadDecisions;
+            _automaticSearchResultCache = automaticSearchResultCache;
             _episodeService = episodeService;
             _episodeCutoffService = episodeCutoffService;
             _queueService = queueService;
@@ -95,6 +98,7 @@ namespace NzbDrone.Core.IndexerSearch
                 }
 
                 var processed = await _processDownloadDecisions.ProcessDecisions(decisions);
+                RetainAutomaticSearchResults(groupEpisodes.Select(episode => episode.Id), processed);
 
                 downloadedCount += processed.Grabbed.Count;
             }
@@ -113,6 +117,7 @@ namespace NzbDrone.Core.IndexerSearch
             {
                 var decisions = _releaseSearchService.EpisodeSearch(episodeId, message.Trigger == CommandTrigger.Manual, false).GetAwaiter().GetResult();
                 var processed = _processDownloadDecisions.ProcessDecisions(decisions).GetAwaiter().GetResult();
+                RetainAutomaticSearchResults(new[] { episodeId }, processed);
 
                 _logger.ProgressInfo("Episode search completed. {0} reports downloaded.", processed.Grabbed.Count);
             }
@@ -192,6 +197,18 @@ namespace NzbDrone.Core.IndexerSearch
             var cutoffUnmet = episodes.Where(e => !queue.Contains(e.Id)).ToList();
 
             SearchForBulkEpisodes(cutoffUnmet, monitored, message.Trigger == CommandTrigger.Manual).GetAwaiter().GetResult();
+        }
+
+        private void RetainAutomaticSearchResults(IEnumerable<int> searchedEpisodeIds, ProcessedDecisions processed)
+        {
+            var retainedEpisodeIds = processed.Grabbed
+                .Concat(processed.Pending)
+                .SelectMany(decision => decision.RemoteEpisode.Episodes)
+                .Select(episode => episode.Id)
+                .Distinct()
+                .ToArray();
+
+            _automaticSearchResultCache.RetainForEpisodes(searchedEpisodeIds, retainedEpisodeIds);
         }
     }
 }

@@ -1,0 +1,86 @@
+.metricRow,
+.spacerRow {
+  display: grid;
+  grid-template-columns: 208px 208px 208px 150px;
+  align-items: center;
+  gap: 1px;
+  padding: 8px;
+  border-top: 1px solid var(--borderColor);
+  line-height: 1.52857143;
+}
+
+.spacerRow {
+  min-height: 38px;
+}
+
+.metricLeft,
+.metricMiddle,
+.metricRight {
+  display: grid;
+  grid-template-columns: 123px 4px 81px;
+  align-items: center;
+  width: 208px;
+  white-space: nowrap;
+}
+
+.label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  text-align: left;
+}
+
+.metricSpacer {
+  width: 4px;
+}
+
+.warningValue {
+  color: var(--warningColor);
+}
+
+.bar {
+  box-sizing: border-box;
+  display: block;
+  width: 150px;
+  padding: 0 8px;
+}
+
+.tooltipBody {
+  max-width: 70ch;
+  padding: 5px;
+  border: 1px solid var(--borderColor);
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.warningBar {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--warningColor);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: $breakpointSmall) {
+  .metricRow,
+  .spacerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .metricLeft,
+  .metricMiddle,
+  .metricRight {
+    grid-template-columns: 123px 4px 81px;
+  }
+
+  .spacerRow {
+    display: none;
+  }
+}

@@ -1,0 +1,4270 @@
+{
+  "generatedAtUtc": "2026-08-31T03:53:06.7836331Z",
+  "method": "Accelerated serial replay through AutomaticSearchResultCache; timestamps determine order only",
+  "Episodes": 4248,
+  "Series": 129,
+  "SearchEvents": 10200,
+  "TerminalEvents": 4248,
+  "SearchReports": 761994,
+  "SearchApiCallsIfNoCache": 11802,
+  "Test6Reconstruction": {
+    "selectedEpisodes": 602,
+    "entries": 1131,
+    "reports": 129768,
+    "apiCalls": 2733,
+    "basis": "Scaled from Test 6 measured totals and placed on exact selected-episode search timestamps"
+  },
+  "MappingCoverage": {
+    "events-release-title": 4433,
+    "reports-release-title": 301264,
+    "events-tvdb": 3675,
+    "reports-tvdb": 286500,
+    "events-nearest-timestamp": 961,
+    "reports-nearest-timestamp": 44462
+  },
+  "TerminalCoverage": {
+    "exact-import": 2083,
+    "sab-complete-plus-30s": 1102,
+    "source-end-fallback": 972,
+    "exact-final-attempt": 91
+  },
+  "CausalOrderAdjustments": 28,
+  "results": [
+    {
+      "Name": "legacy-retention-control",
+      "EndingSearchesBeforeFinalSweep": 7961,
+      "EndingReportsBeforeFinalSweep": 627969,
+      "EndingUsedBytesBeforeFinalSweep": 7259321640,
+      "EndingSearches": 7961,
+      "EndingReports": 627969,
+      "EndingUsedBytes": 7259321640,
+      "PeakUsedBytes": 7259321640,
+      "MaximumResidentSearches": 7961,
+      "MaximumResidentReports": 627969,
+      "CacheHits": 2239,
+      "CacheMisses": 0,
+      "SearchesDropped": 0,
+      "ApiCalls": 9563,
+      "ApiCallsSaved": 2239,
+      "HitRate": 100,
+      "Timeline": [
+        {
+          "LogicalMinute": 0,
+          "UsedBytes": 201860720,
+          "CachedSearches": 201,
+          "CachedReports": 17462
+        },
+        {
+          "LogicalMinute": 1,
+          "UsedBytes": 298860680,
+          "CachedSearches": 301,
+          "CachedReports": 25853
+        },
+        {
+          "LogicalMinute": 2,
+          "UsedBytes": 443083240,
+          "CachedSearches": 443,
+          "CachedReports": 38329
+        },
+        {
+          "LogicalMinute": 3,
+          "UsedBytes": 548117400,
+          "CachedSearches": 546,
+          "CachedReports": 47415
+        },
+        {
+          "LogicalMinute": 4,
+          "UsedBytes": 637950160,
+          "CachedSearches": 637,
+          "CachedReports": 55186
+        },
+        {
+          "LogicalMinute": 5,
+          "UsedBytes": 712223160,
+          "CachedSearches": 693,
+          "CachedReports": 61611
+        },
+        {
+          "LogicalMinute": 6,
+          "UsedBytes": 810298200,
+          "CachedSearches": 794,
+          "CachedReports": 70095
+        },
+        {
+          "LogicalMinute": 7,
+          "UsedBytes": 871138480,
+          "CachedSearches": 849,
+          "CachedReports": 75358
+        },
+        {
+          "LogicalMinute": 8,
+          "UsedBytes": 974866360,
+          "CachedSearches": 952,
+          "CachedReports": 84331
+        },
+        {
+          "LogicalMinute": 9,
+          "UsedBytes": 1025499160,
+          "CachedSearches": 1015,
+          "CachedReports": 88711
+        },
+        {
+          "LogicalMinute": 10,
+          "UsedBytes": 1150532120,
+          "CachedSearches": 1142,
+          "CachedReports": 99527
+        },
+        {
+          "LogicalMinute": 11,
+          "UsedBytes": 1223267640,
+          "CachedSearches": 1236,
+          "CachedReports": 105819
+        },
+        {
+          "LogicalMinute": 12,
+          "UsedBytes": 1357259600,
+          "CachedSearches": 1391,
+          "CachedReports": 117410
+        },
+        {
+          "LogicalMinute": 13,
+          "UsedBytes": 1400644280,
+          "CachedSearches": 1435,
+          "CachedReports": 121163
+        },
+        {
+          "LogicalMinute": 14,
+          "UsedBytes": 1558831320,
+          "CachedSearches": 1579,
+          "CachedReports": 134847
+        },
+        {
+          "LogicalMinute": 15,
+          "UsedBytes": 1665749760,
+          "CachedSearches": 1682,
+          "CachedReports": 144096
+        },
+        {
+          "LogicalMinute": 16,
+          "UsedBytes": 1729665000,
+          "CachedSearches": 1741,
+          "CachedReports": 149625
+        },
+        {
+          "LogicalMinute": 17,
+          "UsedBytes": 1806030360,
+          "CachedSearches": 1821,
+          "CachedReports": 156231
+        },
+        {
+          "LogicalMinute": 18,
+          "UsedBytes": 1857842280,
+          "CachedSearches": 1870,
+          "CachedReports": 160713
+        },
+        {
+          "LogicalMinute": 19,
+          "UsedBytes": 1983985000,
+          "CachedSearches": 1982,
+          "CachedReports": 171625
+        },
+        {
+          "LogicalMinute": 20,
+          "UsedBytes": 2016480160,
+          "CachedSearches": 2017,
+          "CachedReports": 174436
+        },
+        {
+          "LogicalMinute": 21,
+          "UsedBytes": 2129294200,
+          "CachedSearches": 2123,
+          "CachedReports": 184195
+        },
+        {
+          "LogicalMinute": 22,
+          "UsedBytes": 2159639200,
+          "CachedSearches": 2153,
+          "CachedReports": 186820
+        },
+        {
+          "LogicalMinute": 23,
+          "UsedBytes": 2299052800,
+          "CachedSearches": 2290,
+          "CachedReports": 198880
+        },
+        {
+          "LogicalMinute": 24,
+          "UsedBytes": 2367395520,
+          "CachedSearches": 2364,
+          "CachedReports": 204792
+        },
+        {
+          "LogicalMinute": 25,
+          "UsedBytes": 2507814840,
+          "CachedSearches": 2493,
+          "CachedReports": 216939
+        },
+        {
+          "LogicalMinute": 26,
+          "UsedBytes": 2597497320,
+          "CachedSearches": 2599,
+          "CachedReports": 224697
+        },
+        {
+          "LogicalMinute": 27,
+          "UsedBytes": 2757071560,
+          "CachedSearches": 2751,
+          "CachedReports": 238501
+        },
+        {
+          "LogicalMinute": 28,
+          "UsedBytes": 2833587200,
+          "CachedSearches": 2822,
+          "CachedReports": 245120
+        },
+        {
+          "LogicalMinute": 29,
+          "UsedBytes": 2990745400,
+          "CachedSearches": 2975,
+          "CachedReports": 258715
+        },
+        {
+          "LogicalMinute": 30,
+          "UsedBytes": 3095756440,
+          "CachedSearches": 3080,
+          "CachedReports": 267799
+        },
+        {
+          "LogicalMinute": 31,
+          "UsedBytes": 3209310320,
+          "CachedSearches": 3181,
+          "CachedReports": 277622
+        },
+        {
+          "LogicalMinute": 32,
+          "UsedBytes": 3291444120,
+          "CachedSearches": 3265,
+          "CachedReports": 284727
+        },
+        {
+          "LogicalMinute": 33,
+          "UsedBytes": 3396663240,
+          "CachedSearches": 3366,
+          "CachedReports": 293829
+        },
+        {
+          "LogicalMinute": 34,
+          "UsedBytes": 3489547840,
+          "CachedSearches": 3454,
+          "CachedReports": 301864
+        },
+        {
+          "LogicalMinute": 35,
+          "UsedBytes": 3597911280,
+          "CachedSearches": 3560,
+          "CachedReports": 311238
+        },
+        {
+          "LogicalMinute": 36,
+          "UsedBytes": 3770478960,
+          "CachedSearches": 3714,
+          "CachedReports": 326166
+        },
+        {
+          "LogicalMinute": 37,
+          "UsedBytes": 3911880880,
+          "CachedSearches": 3853,
+          "CachedReports": 338398
+        },
+        {
+          "LogicalMinute": 38,
+          "UsedBytes": 4096690600,
+          "CachedSearches": 4036,
+          "CachedReports": 354385
+        },
+        {
+          "LogicalMinute": 39,
+          "UsedBytes": 4209076920,
+          "CachedSearches": 4158,
+          "CachedReports": 364107
+        },
+        {
+          "LogicalMinute": 40,
+          "UsedBytes": 4271315960,
+          "CachedSearches": 4217,
+          "CachedReports": 369491
+        },
+        {
+          "LogicalMinute": 41,
+          "UsedBytes": 4378685240,
+          "CachedSearches": 4326,
+          "CachedReports": 378779
+        },
+        {
+          "LogicalMinute": 42,
+          "UsedBytes": 4497811040,
+          "CachedSearches": 4459,
+          "CachedReports": 389084
+        },
+        {
+          "LogicalMinute": 43,
+          "UsedBytes": 4566801120,
+          "CachedSearches": 4537,
+          "CachedReports": 395052
+        },
+        {
+          "LogicalMinute": 44,
+          "UsedBytes": 4686135000,
+          "CachedSearches": 4663,
+          "CachedReports": 405375
+        },
+        {
+          "LogicalMinute": 45,
+          "UsedBytes": 4836912080,
+          "CachedSearches": 4811,
+          "CachedReports": 418418
+        },
+        {
+          "LogicalMinute": 46,
+          "UsedBytes": 4980637560,
+          "CachedSearches": 4958,
+          "CachedReports": 430851
+        },
+        {
+          "LogicalMinute": 47,
+          "UsedBytes": 5056170600,
+          "CachedSearches": 5038,
+          "CachedReports": 437385
+        },
+        {
+          "LogicalMinute": 48,
+          "UsedBytes": 5172140520,
+          "CachedSearches": 5157,
+          "CachedReports": 447417
+        },
+        {
+          "LogicalMinute": 49,
+          "UsedBytes": 5317611560,
+          "CachedSearches": 5342,
+          "CachedReports": 460001
+        },
+        {
+          "LogicalMinute": 50,
+          "UsedBytes": 5489150400,
+          "CachedSearches": 5516,
+          "CachedReports": 474840
+        },
+        {
+          "LogicalMinute": 51,
+          "UsedBytes": 5583699640,
+          "CachedSearches": 5617,
+          "CachedReports": 483019
+        },
+        {
+          "LogicalMinute": 52,
+          "UsedBytes": 5724072720,
+          "CachedSearches": 5758,
+          "CachedReports": 495162
+        },
+        {
+          "LogicalMinute": 53,
+          "UsedBytes": 5845418040,
+          "CachedSearches": 5893,
+          "CachedReports": 505659
+        },
+        {
+          "LogicalMinute": 54,
+          "UsedBytes": 5968069640,
+          "CachedSearches": 6028,
+          "CachedReports": 516269
+        },
+        {
+          "LogicalMinute": 55,
+          "UsedBytes": 6103564400,
+          "CachedSearches": 6175,
+          "CachedReports": 527990
+        },
+        {
+          "LogicalMinute": 56,
+          "UsedBytes": 6147191840,
+          "CachedSearches": 6220,
+          "CachedReports": 531764
+        },
+        {
+          "LogicalMinute": 57,
+          "UsedBytes": 6291992400,
+          "CachedSearches": 6373,
+          "CachedReports": 544290
+        },
+        {
+          "LogicalMinute": 58,
+          "UsedBytes": 6377825400,
+          "CachedSearches": 6457,
+          "CachedReports": 551715
+        },
+        {
+          "LogicalMinute": 59,
+          "UsedBytes": 6448595720,
+          "CachedSearches": 6542,
+          "CachedReports": 557837
+        },
+        {
+          "LogicalMinute": 60,
+          "UsedBytes": 6507794480,
+          "CachedSearches": 6625,
+          "CachedReports": 562958
+        },
+        {
+          "LogicalMinute": 61,
+          "UsedBytes": 6580680280,
+          "CachedSearches": 6722,
+          "CachedReports": 569263
+        },
+        {
+          "LogicalMinute": 62,
+          "UsedBytes": 6620781920,
+          "CachedSearches": 6852,
+          "CachedReports": 572732
+        },
+        {
+          "LogicalMinute": 63,
+          "UsedBytes": 6637960080,
+          "CachedSearches": 6907,
+          "CachedReports": 574218
+        },
+        {
+          "LogicalMinute": 64,
+          "UsedBytes": 6651196280,
+          "CachedSearches": 6917,
+          "CachedReports": 575363
+        },
+        {
+          "LogicalMinute": 65,
+          "UsedBytes": 6718799160,
+          "CachedSearches": 6968,
+          "CachedReports": 581211
+        },
+        {
+          "LogicalMinute": 66,
+          "UsedBytes": 6730717520,
+          "CachedSearches": 6977,
+          "CachedReports": 582242
+        },
+        {
+          "LogicalMinute": 67,
+          "UsedBytes": 6787731440,
+          "CachedSearches": 7020,
+          "CachedReports": 587174
+        },
+        {
+          "LogicalMinute": 68,
+          "UsedBytes": 6790378680,
+          "CachedSearches": 7022,
+          "CachedReports": 587403
+        },
+        {
+          "LogicalMinute": 69,
+          "UsedBytes": 6794020080,
+          "CachedSearches": 7032,
+          "CachedReports": 587718
+        },
+        {
+          "LogicalMinute": 70,
+          "UsedBytes": 6802054280,
+          "CachedSearches": 7041,
+          "CachedReports": 588413
+        },
+        {
+          "LogicalMinute": 71,
+          "UsedBytes": 6804539680,
+          "CachedSearches": 7046,
+          "CachedReports": 588628
+        },
+        {
+          "LogicalMinute": 72,
+          "UsedBytes": 6815128640,
+          "CachedSearches": 7054,
+          "CachedReports": 589544
+        },
+        {
+          "LogicalMinute": 73,
+          "UsedBytes": 6825717600,
+          "CachedSearches": 7062,
+          "CachedReports": 590460
+        },
+        {
+          "LogicalMinute": 74,
+          "UsedBytes": 6827509400,
+          "CachedSearches": 7072,
+          "CachedReports": 590615
+        },
+        {
+          "LogicalMinute": 75,
+          "UsedBytes": 6838306440,
+          "CachedSearches": 7126,
+          "CachedReports": 591549
+        },
+        {
+          "LogicalMinute": 76,
+          "UsedBytes": 6844525720,
+          "CachedSearches": 7136,
+          "CachedReports": 592087
+        },
+        {
+          "LogicalMinute": 77,
+          "UsedBytes": 6844525720,
+          "CachedSearches": 7136,
+          "CachedReports": 592087
+        },
+        {
+          "LogicalMinute": 78,
+          "UsedBytes": 6870998120,
+          "CachedSearches": 7156,
+          "CachedReports": 594377
+        },
+        {
+          "LogicalMinute": 79,
+          "UsedBytes": 6881587080,
+          "CachedSearches": 7164,
+          "CachedReports": 595293
+        },
+        {
+          "LogicalMinute": 80,
+          "UsedBytes": 6886881560,
+          "CachedSearches": 7168,
+          "CachedReports": 595751
+        },
+        {
+          "LogicalMinute": 81,
+          "UsedBytes": 6886881560,
+          "CachedSearches": 7168,
+          "CachedReports": 595751
+        },
+        {
+          "LogicalMinute": 82,
+          "UsedBytes": 6899158280,
+          "CachedSearches": 7189,
+          "CachedReports": 596813
+        },
+        {
+          "LogicalMinute": 83,
+          "UsedBytes": 6899158280,
+          "CachedSearches": 7189,
+          "CachedReports": 596813
+        },
+        {
+          "LogicalMinute": 84,
+          "UsedBytes": 6899158280,
+          "CachedSearches": 7189,
+          "CachedReports": 596813
+        },
+        {
+          "LogicalMinute": 85,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 86,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 87,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 88,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 89,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 90,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 91,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 92,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 93,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 94,
+          "UsedBytes": 6907100000,
+          "CachedSearches": 7195,
+          "CachedReports": 597500
+        },
+        {
+          "LogicalMinute": 95,
+          "UsedBytes": 6912614120,
+          "CachedSearches": 7210,
+          "CachedReports": 597977
+        },
+        {
+          "LogicalMinute": 96,
+          "UsedBytes": 6932185200,
+          "CachedSearches": 7247,
+          "CachedReports": 599670
+        },
+        {
+          "LogicalMinute": 97,
+          "UsedBytes": 6967200440,
+          "CachedSearches": 7309,
+          "CachedReports": 602699
+        },
+        {
+          "LogicalMinute": 98,
+          "UsedBytes": 6971870680,
+          "CachedSearches": 7315,
+          "CachedReports": 603103
+        },
+        {
+          "LogicalMinute": 99,
+          "UsedBytes": 7005175040,
+          "CachedSearches": 7362,
+          "CachedReports": 605984
+        },
+        {
+          "LogicalMinute": 100,
+          "UsedBytes": 7016746600,
+          "CachedSearches": 7377,
+          "CachedReports": 606985
+        },
+        {
+          "LogicalMinute": 101,
+          "UsedBytes": 7022468800,
+          "CachedSearches": 7385,
+          "CachedReports": 607480
+        },
+        {
+          "LogicalMinute": 102,
+          "UsedBytes": 7022468800,
+          "CachedSearches": 7385,
+          "CachedReports": 607480
+        },
+        {
+          "LogicalMinute": 103,
+          "UsedBytes": 7024156560,
+          "CachedSearches": 7390,
+          "CachedReports": 607626
+        },
+        {
+          "LogicalMinute": 104,
+          "UsedBytes": 7024156560,
+          "CachedSearches": 7390,
+          "CachedReports": 607626
+        },
+        {
+          "LogicalMinute": 105,
+          "UsedBytes": 7024156560,
+          "CachedSearches": 7390,
+          "CachedReports": 607626
+        },
+        {
+          "LogicalMinute": 106,
+          "UsedBytes": 7024156560,
+          "CachedSearches": 7390,
+          "CachedReports": 607626
+        },
+        {
+          "LogicalMinute": 107,
+          "UsedBytes": 7025728720,
+          "CachedSearches": 7400,
+          "CachedReports": 607762
+        },
+        {
+          "LogicalMinute": 108,
+          "UsedBytes": 7025728720,
+          "CachedSearches": 7400,
+          "CachedReports": 607762
+        },
+        {
+          "LogicalMinute": 109,
+          "UsedBytes": 7026480120,
+          "CachedSearches": 7405,
+          "CachedReports": 607827
+        },
+        {
+          "LogicalMinute": 110,
+          "UsedBytes": 7026480120,
+          "CachedSearches": 7405,
+          "CachedReports": 607827
+        },
+        {
+          "LogicalMinute": 111,
+          "UsedBytes": 7026480120,
+          "CachedSearches": 7405,
+          "CachedReports": 607827
+        },
+        {
+          "LogicalMinute": 112,
+          "UsedBytes": 7026480120,
+          "CachedSearches": 7405,
+          "CachedReports": 607827
+        },
+        {
+          "LogicalMinute": 113,
+          "UsedBytes": 7026480120,
+          "CachedSearches": 7405,
+          "CachedReports": 607827
+        },
+        {
+          "LogicalMinute": 114,
+          "UsedBytes": 7026988760,
+          "CachedSearches": 7410,
+          "CachedReports": 607871
+        },
+        {
+          "LogicalMinute": 115,
+          "UsedBytes": 7029300760,
+          "CachedSearches": 7412,
+          "CachedReports": 608071
+        },
+        {
+          "LogicalMinute": 116,
+          "UsedBytes": 7029300760,
+          "CachedSearches": 7412,
+          "CachedReports": 608071
+        },
+        {
+          "LogicalMinute": 117,
+          "UsedBytes": 7029300760,
+          "CachedSearches": 7412,
+          "CachedReports": 608071
+        },
+        {
+          "LogicalMinute": 118,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 119,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 120,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 121,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 122,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 123,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 124,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 125,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 126,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 127,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 128,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 129,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 130,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 131,
+          "UsedBytes": 7032687840,
+          "CachedSearches": 7419,
+          "CachedReports": 608364
+        },
+        {
+          "LogicalMinute": 132,
+          "UsedBytes": 7035346640,
+          "CachedSearches": 7430,
+          "CachedReports": 608594
+        },
+        {
+          "LogicalMinute": 133,
+          "UsedBytes": 7044860520,
+          "CachedSearches": 7470,
+          "CachedReports": 609417
+        },
+        {
+          "LogicalMinute": 134,
+          "UsedBytes": 7046999120,
+          "CachedSearches": 7481,
+          "CachedReports": 609602
+        },
+        {
+          "LogicalMinute": 135,
+          "UsedBytes": 7054108520,
+          "CachedSearches": 7512,
+          "CachedReports": 610217
+        },
+        {
+          "LogicalMinute": 136,
+          "UsedBytes": 7062362360,
+          "CachedSearches": 7534,
+          "CachedReports": 610931
+        },
+        {
+          "LogicalMinute": 137,
+          "UsedBytes": 7073621800,
+          "CachedSearches": 7558,
+          "CachedReports": 611905
+        },
+        {
+          "LogicalMinute": 138,
+          "UsedBytes": 7093736200,
+          "CachedSearches": 7601,
+          "CachedReports": 613645
+        },
+        {
+          "LogicalMinute": 139,
+          "UsedBytes": 7114937240,
+          "CachedSearches": 7639,
+          "CachedReports": 615479
+        },
+        {
+          "LogicalMinute": 140,
+          "UsedBytes": 7122266280,
+          "CachedSearches": 7654,
+          "CachedReports": 616113
+        },
+        {
+          "LogicalMinute": 141,
+          "UsedBytes": 7122266280,
+          "CachedSearches": 7654,
+          "CachedReports": 616113
+        },
+        {
+          "LogicalMinute": 142,
+          "UsedBytes": 7122266280,
+          "CachedSearches": 7654,
+          "CachedReports": 616113
+        },
+        {
+          "LogicalMinute": 143,
+          "UsedBytes": 7134415840,
+          "CachedSearches": 7676,
+          "CachedReports": 617164
+        },
+        {
+          "LogicalMinute": 144,
+          "UsedBytes": 7134415840,
+          "CachedSearches": 7676,
+          "CachedReports": 617164
+        },
+        {
+          "LogicalMinute": 146,
+          "UsedBytes": 7137617960,
+          "CachedSearches": 7681,
+          "CachedReports": 617441
+        },
+        {
+          "LogicalMinute": 148,
+          "UsedBytes": 7137617960,
+          "CachedSearches": 7681,
+          "CachedReports": 617441
+        },
+        {
+          "LogicalMinute": 149,
+          "UsedBytes": 7137617960,
+          "CachedSearches": 7681,
+          "CachedReports": 617441
+        },
+        {
+          "LogicalMinute": 150,
+          "UsedBytes": 7141224680,
+          "CachedSearches": 7691,
+          "CachedReports": 617753
+        },
+        {
+          "LogicalMinute": 151,
+          "UsedBytes": 7143490440,
+          "CachedSearches": 7696,
+          "CachedReports": 617949
+        },
+        {
+          "LogicalMinute": 152,
+          "UsedBytes": 7155431920,
+          "CachedSearches": 7726,
+          "CachedReports": 618982
+        },
+        {
+          "LogicalMinute": 153,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 155,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 156,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 157,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 160,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 161,
+          "UsedBytes": 7157304640,
+          "CachedSearches": 7731,
+          "CachedReports": 619144
+        },
+        {
+          "LogicalMinute": 162,
+          "UsedBytes": 7159420120,
+          "CachedSearches": 7746,
+          "CachedReports": 619327
+        },
+        {
+          "LogicalMinute": 163,
+          "UsedBytes": 7163223360,
+          "CachedSearches": 7771,
+          "CachedReports": 619656
+        },
+        {
+          "LogicalMinute": 164,
+          "UsedBytes": 7163974760,
+          "CachedSearches": 7776,
+          "CachedReports": 619721
+        },
+        {
+          "LogicalMinute": 165,
+          "UsedBytes": 7166437040,
+          "CachedSearches": 7791,
+          "CachedReports": 619934
+        },
+        {
+          "LogicalMinute": 166,
+          "UsedBytes": 7168783720,
+          "CachedSearches": 7806,
+          "CachedReports": 620137
+        },
+        {
+          "LogicalMinute": 167,
+          "UsedBytes": 7169454200,
+          "CachedSearches": 7811,
+          "CachedReports": 620195
+        },
+        {
+          "LogicalMinute": 168,
+          "UsedBytes": 7171176640,
+          "CachedSearches": 7821,
+          "CachedReports": 620344
+        },
+        {
+          "LogicalMinute": 169,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 170,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 171,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 172,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 173,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 174,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 175,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 176,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 177,
+          "UsedBytes": 7172771920,
+          "CachedSearches": 7831,
+          "CachedReports": 620482
+        },
+        {
+          "LogicalMinute": 178,
+          "UsedBytes": 7176517360,
+          "CachedSearches": 7836,
+          "CachedReports": 620806
+        },
+        {
+          "LogicalMinute": 179,
+          "UsedBytes": 7183800160,
+          "CachedSearches": 7846,
+          "CachedReports": 621436
+        },
+        {
+          "LogicalMinute": 180,
+          "UsedBytes": 7207209160,
+          "CachedSearches": 7878,
+          "CachedReports": 623461
+        },
+        {
+          "LogicalMinute": 181,
+          "UsedBytes": 7249148840,
+          "CachedSearches": 7944,
+          "CachedReports": 627089
+        },
+        {
+          "LogicalMinute": 182,
+          "UsedBytes": 7249148840,
+          "CachedSearches": 7944,
+          "CachedReports": 627089
+        },
+        {
+          "LogicalMinute": 183,
+          "UsedBytes": 7249148840,
+          "CachedSearches": 7944,
+          "CachedReports": 627089
+        },
+        {
+          "LogicalMinute": 184,
+          "UsedBytes": 7256003920,
+          "CachedSearches": 7954,
+          "CachedReports": 627682
+        },
+        {
+          "LogicalMinute": 185,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 186,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 187,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 188,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 189,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 190,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 191,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 192,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 193,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 194,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 195,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 196,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 197,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 198,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7959,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 286,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 755,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 756,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 759,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 760,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 761,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 762,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 763,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 764,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 765,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 766,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 767,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 768,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 770,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 771,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 772,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 774,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 776,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 777,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 779,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 782,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 783,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 784,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 786,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 792,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 793,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 794,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 795,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 941,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 942,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 943,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 946,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 947,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 948,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 949,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 952,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 1132,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        },
+        {
+          "LogicalMinute": 1136,
+          "UsedBytes": 7259321640,
+          "CachedSearches": 7961,
+          "CachedReports": 627969
+        }
+      ]
+    },
+    {
+      "Name": "completion-aware-event-replay",
+      "EndingSearchesBeforeFinalSweep": 0,
+      "EndingReportsBeforeFinalSweep": 0,
+      "EndingUsedBytesBeforeFinalSweep": 0,
+      "EndingSearches": 0,
+      "EndingReports": 0,
+      "EndingUsedBytes": 0,
+      "PeakUsedBytes": 4677719320,
+      "MaximumResidentSearches": 5085,
+      "MaximumResidentReports": 404647,
+      "CacheHits": 1778,
+      "CacheMisses": 0,
+      "SearchesDropped": 0,
+      "ApiCalls": 10024,
+      "ApiCallsSaved": 1778,
+      "HitRate": 100,
+      "Timeline": [
+        {
+          "LogicalMinute": 0,
+          "UsedBytes": 201860720,
+          "CachedSearches": 201,
+          "CachedReports": 17462
+        },
+        {
+          "LogicalMinute": 1,
+          "UsedBytes": 293150040,
+          "CachedSearches": 294,
+          "CachedReports": 25359
+        },
+        {
+          "LogicalMinute": 2,
+          "UsedBytes": 437372600,
+          "CachedSearches": 436,
+          "CachedReports": 37835
+        },
+        {
+          "LogicalMinute": 3,
+          "UsedBytes": 514466240,
+          "CachedSearches": 508,
+          "CachedReports": 44504
+        },
+        {
+          "LogicalMinute": 4,
+          "UsedBytes": 592311280,
+          "CachedSearches": 583,
+          "CachedReports": 51238
+        },
+        {
+          "LogicalMinute": 5,
+          "UsedBytes": 641059800,
+          "CachedSearches": 613,
+          "CachedReports": 55455
+        },
+        {
+          "LogicalMinute": 6,
+          "UsedBytes": 704408600,
+          "CachedSearches": 683,
+          "CachedReports": 60935
+        },
+        {
+          "LogicalMinute": 7,
+          "UsedBytes": 757573040,
+          "CachedSearches": 728,
+          "CachedReports": 65534
+        },
+        {
+          "LogicalMinute": 8,
+          "UsedBytes": 852665600,
+          "CachedSearches": 820,
+          "CachedReports": 73760
+        },
+        {
+          "LogicalMinute": 9,
+          "UsedBytes": 874490880,
+          "CachedSearches": 855,
+          "CachedReports": 75648
+        },
+        {
+          "LogicalMinute": 10,
+          "UsedBytes": 883345840,
+          "CachedSearches": 883,
+          "CachedReports": 76414
+        },
+        {
+          "LogicalMinute": 11,
+          "UsedBytes": 952104720,
+          "CachedSearches": 974,
+          "CachedReports": 82362
+        },
+        {
+          "LogicalMinute": 12,
+          "UsedBytes": 1040388440,
+          "CachedSearches": 1089,
+          "CachedReports": 89999
+        },
+        {
+          "LogicalMinute": 13,
+          "UsedBytes": 1034700920,
+          "CachedSearches": 1096,
+          "CachedReports": 89507
+        },
+        {
+          "LogicalMinute": 14,
+          "UsedBytes": 1188911320,
+          "CachedSearches": 1237,
+          "CachedReports": 102847
+        },
+        {
+          "LogicalMinute": 15,
+          "UsedBytes": 1246757560,
+          "CachedSearches": 1303,
+          "CachedReports": 107851
+        },
+        {
+          "LogicalMinute": 16,
+          "UsedBytes": 1255982440,
+          "CachedSearches": 1313,
+          "CachedReports": 108649
+        },
+        {
+          "LogicalMinute": 17,
+          "UsedBytes": 1332347800,
+          "CachedSearches": 1393,
+          "CachedReports": 115255
+        },
+        {
+          "LogicalMinute": 18,
+          "UsedBytes": 1367675160,
+          "CachedSearches": 1424,
+          "CachedReports": 118311
+        },
+        {
+          "LogicalMinute": 19,
+          "UsedBytes": 1493817880,
+          "CachedSearches": 1536,
+          "CachedReports": 129223
+        },
+        {
+          "LogicalMinute": 20,
+          "UsedBytes": 1526313040,
+          "CachedSearches": 1571,
+          "CachedReports": 132034
+        },
+        {
+          "LogicalMinute": 21,
+          "UsedBytes": 1639127080,
+          "CachedSearches": 1677,
+          "CachedReports": 141793
+        },
+        {
+          "LogicalMinute": 22,
+          "UsedBytes": 1664720920,
+          "CachedSearches": 1700,
+          "CachedReports": 144007
+        },
+        {
+          "LogicalMinute": 23,
+          "UsedBytes": 1804134520,
+          "CachedSearches": 1837,
+          "CachedReports": 156067
+        },
+        {
+          "LogicalMinute": 24,
+          "UsedBytes": 1744161240,
+          "CachedSearches": 1795,
+          "CachedReports": 150879
+        },
+        {
+          "LogicalMinute": 25,
+          "UsedBytes": 1841219000,
+          "CachedSearches": 1887,
+          "CachedReports": 159275
+        },
+        {
+          "LogicalMinute": 26,
+          "UsedBytes": 1930901480,
+          "CachedSearches": 1993,
+          "CachedReports": 167033
+        },
+        {
+          "LogicalMinute": 27,
+          "UsedBytes": 2043438080,
+          "CachedSearches": 2101,
+          "CachedReports": 176768
+        },
+        {
+          "LogicalMinute": 28,
+          "UsedBytes": 2069552120,
+          "CachedSearches": 2134,
+          "CachedReports": 179027
+        },
+        {
+          "LogicalMinute": 29,
+          "UsedBytes": 2184527880,
+          "CachedSearches": 2249,
+          "CachedReports": 188973
+        },
+        {
+          "LogicalMinute": 30,
+          "UsedBytes": 2243229560,
+          "CachedSearches": 2307,
+          "CachedReports": 194051
+        },
+        {
+          "LogicalMinute": 31,
+          "UsedBytes": 2323051360,
+          "CachedSearches": 2374,
+          "CachedReports": 200956
+        },
+        {
+          "LogicalMinute": 32,
+          "UsedBytes": 2398272280,
+          "CachedSearches": 2450,
+          "CachedReports": 207463
+        },
+        {
+          "LogicalMinute": 33,
+          "UsedBytes": 2441229240,
+          "CachedSearches": 2487,
+          "CachedReports": 211179
+        },
+        {
+          "LogicalMinute": 34,
+          "UsedBytes": 2534113840,
+          "CachedSearches": 2575,
+          "CachedReports": 219214
+        },
+        {
+          "LogicalMinute": 35,
+          "UsedBytes": 2629345120,
+          "CachedSearches": 2665,
+          "CachedReports": 227452
+        },
+        {
+          "LogicalMinute": 36,
+          "UsedBytes": 2766527640,
+          "CachedSearches": 2782,
+          "CachedReports": 239319
+        },
+        {
+          "LogicalMinute": 37,
+          "UsedBytes": 2886451080,
+          "CachedSearches": 2902,
+          "CachedReports": 249693
+        },
+        {
+          "LogicalMinute": 38,
+          "UsedBytes": 2939257160,
+          "CachedSearches": 2967,
+          "CachedReports": 254261
+        },
+        {
+          "LogicalMinute": 39,
+          "UsedBytes": 3051643480,
+          "CachedSearches": 3089,
+          "CachedReports": 263983
+        },
+        {
+          "LogicalMinute": 40,
+          "UsedBytes": 3074093000,
+          "CachedSearches": 3118,
+          "CachedReports": 265925
+        },
+        {
+          "LogicalMinute": 41,
+          "UsedBytes": 3181462280,
+          "CachedSearches": 3227,
+          "CachedReports": 275213
+        },
+        {
+          "LogicalMinute": 42,
+          "UsedBytes": 3300588080,
+          "CachedSearches": 3360,
+          "CachedReports": 285518
+        },
+        {
+          "LogicalMinute": 43,
+          "UsedBytes": 3337741920,
+          "CachedSearches": 3414,
+          "CachedReports": 288732
+        },
+        {
+          "LogicalMinute": 44,
+          "UsedBytes": 3457075800,
+          "CachedSearches": 3540,
+          "CachedReports": 299055
+        },
+        {
+          "LogicalMinute": 45,
+          "UsedBytes": 3607852880,
+          "CachedSearches": 3688,
+          "CachedReports": 312098
+        },
+        {
+          "LogicalMinute": 46,
+          "UsedBytes": 3751578360,
+          "CachedSearches": 3835,
+          "CachedReports": 324531
+        },
+        {
+          "LogicalMinute": 47,
+          "UsedBytes": 3795275160,
+          "CachedSearches": 3891,
+          "CachedReports": 328311
+        },
+        {
+          "LogicalMinute": 48,
+          "UsedBytes": 3882067640,
+          "CachedSearches": 3988,
+          "CachedReports": 335819
+        },
+        {
+          "LogicalMinute": 49,
+          "UsedBytes": 3982431560,
+          "CachedSearches": 4139,
+          "CachedReports": 344501
+        },
+        {
+          "LogicalMinute": 50,
+          "UsedBytes": 4065085560,
+          "CachedSearches": 4246,
+          "CachedReports": 351651
+        },
+        {
+          "LogicalMinute": 51,
+          "UsedBytes": 4138364400,
+          "CachedSearches": 4331,
+          "CachedReports": 357990
+        },
+        {
+          "LogicalMinute": 52,
+          "UsedBytes": 4246901240,
+          "CachedSearches": 4448,
+          "CachedReports": 367379
+        },
+        {
+          "LogicalMinute": 53,
+          "UsedBytes": 4295256720,
+          "CachedSearches": 4528,
+          "CachedReports": 371562
+        },
+        {
+          "LogicalMinute": 54,
+          "UsedBytes": 4396637920,
+          "CachedSearches": 4647,
+          "CachedReports": 380332
+        },
+        {
+          "LogicalMinute": 55,
+          "UsedBytes": 4505544680,
+          "CachedSearches": 4774,
+          "CachedReports": 389753
+        },
+        {
+          "LogicalMinute": 56,
+          "UsedBytes": 4432231160,
+          "CachedSearches": 4724,
+          "CachedReports": 383411
+        },
+        {
+          "LogicalMinute": 57,
+          "UsedBytes": 4522630360,
+          "CachedSearches": 4836,
+          "CachedReports": 391231
+        },
+        {
+          "LogicalMinute": 58,
+          "UsedBytes": 4608463360,
+          "CachedSearches": 4920,
+          "CachedReports": 398656
+        },
+        {
+          "LogicalMinute": 59,
+          "UsedBytes": 4615387800,
+          "CachedSearches": 4952,
+          "CachedReports": 399255
+        },
+        {
+          "LogicalMinute": 60,
+          "UsedBytes": 4625653080,
+          "CachedSearches": 4966,
+          "CachedReports": 400143
+        },
+        {
+          "LogicalMinute": 61,
+          "UsedBytes": 4660425560,
+          "CachedSearches": 5027,
+          "CachedReports": 403151
+        },
+        {
+          "LogicalMinute": 62,
+          "UsedBytes": 4344756640,
+          "CachedSearches": 4750,
+          "CachedReports": 375844
+        },
+        {
+          "LogicalMinute": 63,
+          "UsedBytes": 4287049120,
+          "CachedSearches": 4668,
+          "CachedReports": 370852
+        },
+        {
+          "LogicalMinute": 64,
+          "UsedBytes": 4297638080,
+          "CachedSearches": 4676,
+          "CachedReports": 371768
+        },
+        {
+          "LogicalMinute": 65,
+          "UsedBytes": 4339126920,
+          "CachedSearches": 4696,
+          "CachedReports": 375357
+        },
+        {
+          "LogicalMinute": 66,
+          "UsedBytes": 4305776320,
+          "CachedSearches": 4649,
+          "CachedReports": 372472
+        },
+        {
+          "LogicalMinute": 67,
+          "UsedBytes": 4344259560,
+          "CachedSearches": 4678,
+          "CachedReports": 375801
+        },
+        {
+          "LogicalMinute": 68,
+          "UsedBytes": 4324307000,
+          "CachedSearches": 4658,
+          "CachedReports": 374075
+        },
+        {
+          "LogicalMinute": 69,
+          "UsedBytes": 4306284960,
+          "CachedSearches": 4643,
+          "CachedReports": 372516
+        },
+        {
+          "LogicalMinute": 70,
+          "UsedBytes": 4302215840,
+          "CachedSearches": 4640,
+          "CachedReports": 372164
+        },
+        {
+          "LogicalMinute": 71,
+          "UsedBytes": 4243491040,
+          "CachedSearches": 4586,
+          "CachedReports": 367084
+        },
+        {
+          "LogicalMinute": 72,
+          "UsedBytes": 4239537520,
+          "CachedSearches": 4580,
+          "CachedReports": 366742
+        },
+        {
+          "LogicalMinute": 73,
+          "UsedBytes": 4166721080,
+          "CachedSearches": 4514,
+          "CachedReports": 360443
+        },
+        {
+          "LogicalMinute": 74,
+          "UsedBytes": 4138757440,
+          "CachedSearches": 4492,
+          "CachedReports": 358024
+        },
+        {
+          "LogicalMinute": 75,
+          "UsedBytes": 4088633280,
+          "CachedSearches": 4496,
+          "CachedReports": 353688
+        },
+        {
+          "LogicalMinute": 76,
+          "UsedBytes": 4086910840,
+          "CachedSearches": 4500,
+          "CachedReports": 353539
+        },
+        {
+          "LogicalMinute": 77,
+          "UsedBytes": 4028440360,
+          "CachedSearches": 4441,
+          "CachedReports": 348481
+        },
+        {
+          "LogicalMinute": 78,
+          "UsedBytes": 4049618280,
+          "CachedSearches": 4457,
+          "CachedReports": 350313
+        },
+        {
+          "LogicalMinute": 79,
+          "UsedBytes": 4025111080,
+          "CachedSearches": 4404,
+          "CachedReports": 348193
+        },
+        {
+          "LogicalMinute": 80,
+          "UsedBytes": 4005586240,
+          "CachedSearches": 4373,
+          "CachedReports": 346504
+        },
+        {
+          "LogicalMinute": 81,
+          "UsedBytes": 4002939000,
+          "CachedSearches": 4371,
+          "CachedReports": 346275
+        },
+        {
+          "LogicalMinute": 82,
+          "UsedBytes": 4015215720,
+          "CachedSearches": 4392,
+          "CachedReports": 347337
+        },
+        {
+          "LogicalMinute": 83,
+          "UsedBytes": 3963819960,
+          "CachedSearches": 4341,
+          "CachedReports": 342891
+        },
+        {
+          "LogicalMinute": 84,
+          "UsedBytes": 3940607480,
+          "CachedSearches": 4321,
+          "CachedReports": 340883
+        },
+        {
+          "LogicalMinute": 85,
+          "UsedBytes": 3901939280,
+          "CachedSearches": 4287,
+          "CachedReports": 337538
+        },
+        {
+          "LogicalMinute": 86,
+          "UsedBytes": 3864045600,
+          "CachedSearches": 4250,
+          "CachedReports": 334260
+        },
+        {
+          "LogicalMinute": 87,
+          "UsedBytes": 3850763160,
+          "CachedSearches": 4235,
+          "CachedReports": 333111
+        },
+        {
+          "LogicalMinute": 88,
+          "UsedBytes": 3824545080,
+          "CachedSearches": 4209,
+          "CachedReports": 330843
+        },
+        {
+          "LogicalMinute": 89,
+          "UsedBytes": 3780409000,
+          "CachedSearches": 4165,
+          "CachedReports": 327025
+        },
+        {
+          "LogicalMinute": 90,
+          "UsedBytes": 3719406880,
+          "CachedSearches": 4100,
+          "CachedReports": 321748
+        },
+        {
+          "LogicalMinute": 91,
+          "UsedBytes": 3685593880,
+          "CachedSearches": 4069,
+          "CachedReports": 318823
+        },
+        {
+          "LogicalMinute": 92,
+          "UsedBytes": 3637203720,
+          "CachedSearches": 4022,
+          "CachedReports": 314637
+        },
+        {
+          "LogicalMinute": 93,
+          "UsedBytes": 3629181080,
+          "CachedSearches": 4013,
+          "CachedReports": 313943
+        },
+        {
+          "LogicalMinute": 94,
+          "UsedBytes": 3594119600,
+          "CachedSearches": 3979,
+          "CachedReports": 310910
+        },
+        {
+          "LogicalMinute": 95,
+          "UsedBytes": 3575427080,
+          "CachedSearches": 3969,
+          "CachedReports": 309293
+        },
+        {
+          "LogicalMinute": 96,
+          "UsedBytes": 3594998160,
+          "CachedSearches": 4006,
+          "CachedReports": 310986
+        },
+        {
+          "LogicalMinute": 97,
+          "UsedBytes": 3594362360,
+          "CachedSearches": 4026,
+          "CachedReports": 310931
+        },
+        {
+          "LogicalMinute": 98,
+          "UsedBytes": 3589403120,
+          "CachedSearches": 4017,
+          "CachedReports": 310502
+        },
+        {
+          "LogicalMinute": 99,
+          "UsedBytes": 3583091360,
+          "CachedSearches": 4028,
+          "CachedReports": 309956
+        },
+        {
+          "LogicalMinute": 100,
+          "UsedBytes": 3594662920,
+          "CachedSearches": 4043,
+          "CachedReports": 310957
+        },
+        {
+          "LogicalMinute": 101,
+          "UsedBytes": 3600385120,
+          "CachedSearches": 4051,
+          "CachedReports": 311452
+        },
+        {
+          "LogicalMinute": 102,
+          "UsedBytes": 3600385120,
+          "CachedSearches": 4051,
+          "CachedReports": 311452
+        },
+        {
+          "LogicalMinute": 103,
+          "UsedBytes": 3592038800,
+          "CachedSearches": 4045,
+          "CachedReports": 310730
+        },
+        {
+          "LogicalMinute": 104,
+          "UsedBytes": 3577866240,
+          "CachedSearches": 4031,
+          "CachedReports": 309504
+        },
+        {
+          "LogicalMinute": 105,
+          "UsedBytes": 3554572840,
+          "CachedSearches": 4009,
+          "CachedReports": 307489
+        },
+        {
+          "LogicalMinute": 106,
+          "UsedBytes": 3538018920,
+          "CachedSearches": 3992,
+          "CachedReports": 306057
+        },
+        {
+          "LogicalMinute": 107,
+          "UsedBytes": 3501813000,
+          "CachedSearches": 3964,
+          "CachedReports": 302925
+        },
+        {
+          "LogicalMinute": 108,
+          "UsedBytes": 3501813000,
+          "CachedSearches": 3964,
+          "CachedReports": 302925
+        },
+        {
+          "LogicalMinute": 109,
+          "UsedBytes": 3503119280,
+          "CachedSearches": 3973,
+          "CachedReports": 303038
+        },
+        {
+          "LogicalMinute": 110,
+          "UsedBytes": 3434244800,
+          "CachedSearches": 3910,
+          "CachedReports": 297080
+        },
+        {
+          "LogicalMinute": 111,
+          "UsedBytes": 3360515120,
+          "CachedSearches": 3854,
+          "CachedReports": 290702
+        },
+        {
+          "LogicalMinute": 112,
+          "UsedBytes": 3305905680,
+          "CachedSearches": 3802,
+          "CachedReports": 285978
+        },
+        {
+          "LogicalMinute": 113,
+          "UsedBytes": 3295559480,
+          "CachedSearches": 3791,
+          "CachedReports": 285083
+        },
+        {
+          "LogicalMinute": 114,
+          "UsedBytes": 3296068120,
+          "CachedSearches": 3796,
+          "CachedReports": 285127
+        },
+        {
+          "LogicalMinute": 115,
+          "UsedBytes": 3244683920,
+          "CachedSearches": 3743,
+          "CachedReports": 280682
+        },
+        {
+          "LogicalMinute": 116,
+          "UsedBytes": 3244683920,
+          "CachedSearches": 3743,
+          "CachedReports": 280682
+        },
+        {
+          "LogicalMinute": 117,
+          "UsedBytes": 3096635000,
+          "CachedSearches": 3595,
+          "CachedReports": 267875
+        },
+        {
+          "LogicalMinute": 118,
+          "UsedBytes": 3100022080,
+          "CachedSearches": 3602,
+          "CachedReports": 268168
+        },
+        {
+          "LogicalMinute": 119,
+          "UsedBytes": 3092704600,
+          "CachedSearches": 3589,
+          "CachedReports": 267535
+        },
+        {
+          "LogicalMinute": 120,
+          "UsedBytes": 3092704600,
+          "CachedSearches": 3589,
+          "CachedReports": 267535
+        },
+        {
+          "LogicalMinute": 121,
+          "UsedBytes": 3079792080,
+          "CachedSearches": 3576,
+          "CachedReports": 266418
+        },
+        {
+          "LogicalMinute": 122,
+          "UsedBytes": 2969382520,
+          "CachedSearches": 3416,
+          "CachedReports": 256867
+        },
+        {
+          "LogicalMinute": 123,
+          "UsedBytes": 2957498840,
+          "CachedSearches": 3403,
+          "CachedReports": 255839
+        },
+        {
+          "LogicalMinute": 124,
+          "UsedBytes": 2886323920,
+          "CachedSearches": 3335,
+          "CachedReports": 249682
+        },
+        {
+          "LogicalMinute": 125,
+          "UsedBytes": 2886323920,
+          "CachedSearches": 3335,
+          "CachedReports": 249682
+        },
+        {
+          "LogicalMinute": 126,
+          "UsedBytes": 2886323920,
+          "CachedSearches": 3335,
+          "CachedReports": 249682
+        },
+        {
+          "LogicalMinute": 127,
+          "UsedBytes": 2880601720,
+          "CachedSearches": 3327,
+          "CachedReports": 249187
+        },
+        {
+          "LogicalMinute": 128,
+          "UsedBytes": 2856071400,
+          "CachedSearches": 3300,
+          "CachedReports": 247065
+        },
+        {
+          "LogicalMinute": 129,
+          "UsedBytes": 2778735000,
+          "CachedSearches": 3213,
+          "CachedReports": 240375
+        },
+        {
+          "LogicalMinute": 130,
+          "UsedBytes": 2737685440,
+          "CachedSearches": 3172,
+          "CachedReports": 236824
+        },
+        {
+          "LogicalMinute": 131,
+          "UsedBytes": 2668903440,
+          "CachedSearches": 3097,
+          "CachedReports": 230874
+        },
+        {
+          "LogicalMinute": 132,
+          "UsedBytes": 2623750080,
+          "CachedSearches": 3044,
+          "CachedReports": 226968
+        },
+        {
+          "LogicalMinute": 133,
+          "UsedBytes": 2600086760,
+          "CachedSearches": 3051,
+          "CachedReports": 224921
+        },
+        {
+          "LogicalMinute": 134,
+          "UsedBytes": 2527848320,
+          "CachedSearches": 2989,
+          "CachedReports": 218672
+        },
+        {
+          "LogicalMinute": 135,
+          "UsedBytes": 2476001720,
+          "CachedSearches": 2953,
+          "CachedReports": 214187
+        },
+        {
+          "LogicalMinute": 136,
+          "UsedBytes": 2475215640,
+          "CachedSearches": 2945,
+          "CachedReports": 214119
+        },
+        {
+          "LogicalMinute": 137,
+          "UsedBytes": 2389683200,
+          "CachedSearches": 2857,
+          "CachedReports": 206720
+        },
+        {
+          "LogicalMinute": 138,
+          "UsedBytes": 2175349240,
+          "CachedSearches": 2607,
+          "CachedReports": 188179
+        },
+        {
+          "LogicalMinute": 139,
+          "UsedBytes": 2193706520,
+          "CachedSearches": 2636,
+          "CachedReports": 189767
+        },
+        {
+          "LogicalMinute": 140,
+          "UsedBytes": 2094383000,
+          "CachedSearches": 2496,
+          "CachedReports": 181175
+        },
+        {
+          "LogicalMinute": 141,
+          "UsedBytes": 2132242000,
+          "CachedSearches": 2546,
+          "CachedReports": 184450
+        },
+        {
+          "LogicalMinute": 142,
+          "UsedBytes": 2111306840,
+          "CachedSearches": 2514,
+          "CachedReports": 182639
+        },
+        {
+          "LogicalMinute": 143,
+          "UsedBytes": 2085111880,
+          "CachedSearches": 2485,
+          "CachedReports": 180373
+        },
+        {
+          "LogicalMinute": 144,
+          "UsedBytes": 2082695840,
+          "CachedSearches": 2482,
+          "CachedReports": 180164
+        },
+        {
+          "LogicalMinute": 146,
+          "UsedBytes": 2085897960,
+          "CachedSearches": 2487,
+          "CachedReports": 180441
+        },
+        {
+          "LogicalMinute": 148,
+          "UsedBytes": 2027022880,
+          "CachedSearches": 2423,
+          "CachedReports": 175348
+        },
+        {
+          "LogicalMinute": 149,
+          "UsedBytes": 2019011800,
+          "CachedSearches": 2414,
+          "CachedReports": 174655
+        },
+        {
+          "LogicalMinute": 150,
+          "UsedBytes": 2011370640,
+          "CachedSearches": 2412,
+          "CachedReports": 173994
+        },
+        {
+          "LogicalMinute": 151,
+          "UsedBytes": 2013636400,
+          "CachedSearches": 2417,
+          "CachedReports": 174190
+        },
+        {
+          "LogicalMinute": 152,
+          "UsedBytes": 2025577880,
+          "CachedSearches": 2447,
+          "CachedReports": 175223
+        },
+        {
+          "LogicalMinute": 153,
+          "UsedBytes": 2027450600,
+          "CachedSearches": 2452,
+          "CachedReports": 175385
+        },
+        {
+          "LogicalMinute": 155,
+          "UsedBytes": 1982008240,
+          "CachedSearches": 2409,
+          "CachedReports": 171454
+        },
+        {
+          "LogicalMinute": 156,
+          "UsedBytes": 1967338600,
+          "CachedSearches": 2394,
+          "CachedReports": 170185
+        },
+        {
+          "LogicalMinute": 157,
+          "UsedBytes": 1967338600,
+          "CachedSearches": 2394,
+          "CachedReports": 170185
+        },
+        {
+          "LogicalMinute": 160,
+          "UsedBytes": 1901192280,
+          "CachedSearches": 2325,
+          "CachedReports": 164463
+        },
+        {
+          "LogicalMinute": 161,
+          "UsedBytes": 1892025200,
+          "CachedSearches": 2316,
+          "CachedReports": 163670
+        },
+        {
+          "LogicalMinute": 162,
+          "UsedBytes": 1894140680,
+          "CachedSearches": 2331,
+          "CachedReports": 163853
+        },
+        {
+          "LogicalMinute": 163,
+          "UsedBytes": 1888175720,
+          "CachedSearches": 2346,
+          "CachedReports": 163337
+        },
+        {
+          "LogicalMinute": 164,
+          "UsedBytes": 1884557440,
+          "CachedSearches": 2346,
+          "CachedReports": 163024
+        },
+        {
+          "LogicalMinute": 165,
+          "UsedBytes": 1887019720,
+          "CachedSearches": 2361,
+          "CachedReports": 163237
+        },
+        {
+          "LogicalMinute": 166,
+          "UsedBytes": 1876927840,
+          "CachedSearches": 2361,
+          "CachedReports": 162364
+        },
+        {
+          "LogicalMinute": 167,
+          "UsedBytes": 1855333760,
+          "CachedSearches": 2341,
+          "CachedReports": 160496
+        },
+        {
+          "LogicalMinute": 168,
+          "UsedBytes": 1857056200,
+          "CachedSearches": 2351,
+          "CachedReports": 160645
+        },
+        {
+          "LogicalMinute": 169,
+          "UsedBytes": 1860165840,
+          "CachedSearches": 2371,
+          "CachedReports": 160914
+        },
+        {
+          "LogicalMinute": 170,
+          "UsedBytes": 1812654240,
+          "CachedSearches": 2322,
+          "CachedReports": 156804
+        },
+        {
+          "LogicalMinute": 171,
+          "UsedBytes": 1812654240,
+          "CachedSearches": 2322,
+          "CachedReports": 156804
+        },
+        {
+          "LogicalMinute": 172,
+          "UsedBytes": 1802204000,
+          "CachedSearches": 2304,
+          "CachedReports": 155900
+        },
+        {
+          "LogicalMinute": 173,
+          "UsedBytes": 1788563200,
+          "CachedSearches": 2241,
+          "CachedReports": 154720
+        },
+        {
+          "LogicalMinute": 174,
+          "UsedBytes": 1744588960,
+          "CachedSearches": 2177,
+          "CachedReports": 150916
+        },
+        {
+          "LogicalMinute": 175,
+          "UsedBytes": 1739386960,
+          "CachedSearches": 2142,
+          "CachedReports": 150466
+        },
+        {
+          "LogicalMinute": 176,
+          "UsedBytes": 1726647840,
+          "CachedSearches": 2092,
+          "CachedReports": 149364
+        },
+        {
+          "LogicalMinute": 177,
+          "UsedBytes": 1724416760,
+          "CachedSearches": 2072,
+          "CachedReports": 149171
+        },
+        {
+          "LogicalMinute": 178,
+          "UsedBytes": 1727133360,
+          "CachedSearches": 2067,
+          "CachedReports": 149406
+        },
+        {
+          "LogicalMinute": 179,
+          "UsedBytes": 1729688120,
+          "CachedSearches": 2066,
+          "CachedReports": 149627
+        },
+        {
+          "LogicalMinute": 180,
+          "UsedBytes": 1744635200,
+          "CachedSearches": 2078,
+          "CachedReports": 150920
+        },
+        {
+          "LogicalMinute": 181,
+          "UsedBytes": 1786574880,
+          "CachedSearches": 2144,
+          "CachedReports": 154548
+        },
+        {
+          "LogicalMinute": 182,
+          "UsedBytes": 1786574880,
+          "CachedSearches": 2144,
+          "CachedReports": 154548
+        },
+        {
+          "LogicalMinute": 183,
+          "UsedBytes": 1786574880,
+          "CachedSearches": 2144,
+          "CachedReports": 154548
+        },
+        {
+          "LogicalMinute": 184,
+          "UsedBytes": 1793429960,
+          "CachedSearches": 2154,
+          "CachedReports": 155141
+        },
+        {
+          "LogicalMinute": 185,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 186,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 187,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 188,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 189,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 190,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 191,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 192,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 193,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 194,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 195,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 196,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 197,
+          "UsedBytes": 1796747680,
+          "CachedSearches": 2159,
+          "CachedReports": 155428
+        },
+        {
+          "LogicalMinute": 198,
+          "UsedBytes": 591710160,
+          "CachedSearches": 864,
+          "CachedReports": 51186
+        },
+        {
+          "LogicalMinute": 286,
+          "UsedBytes": 591710160,
+          "CachedSearches": 866,
+          "CachedReports": 51186
+        },
+        {
+          "LogicalMinute": 755,
+          "UsedBytes": 550117280,
+          "CachedSearches": 826,
+          "CachedReports": 47588
+        },
+        {
+          "LogicalMinute": 756,
+          "UsedBytes": 462596520,
+          "CachedSearches": 730,
+          "CachedReports": 40017
+        },
+        {
+          "LogicalMinute": 759,
+          "UsedBytes": 379977200,
+          "CachedSearches": 649,
+          "CachedReports": 32870
+        },
+        {
+          "LogicalMinute": 760,
+          "UsedBytes": 361226880,
+          "CachedSearches": 630,
+          "CachedReports": 31248
+        },
+        {
+          "LogicalMinute": 761,
+          "UsedBytes": 361226880,
+          "CachedSearches": 630,
+          "CachedReports": 31248
+        },
+        {
+          "LogicalMinute": 762,
+          "UsedBytes": 351424000,
+          "CachedSearches": 618,
+          "CachedReports": 30400
+        },
+        {
+          "LogicalMinute": 763,
+          "UsedBytes": 333240120,
+          "CachedSearches": 580,
+          "CachedReports": 28827
+        },
+        {
+          "LogicalMinute": 764,
+          "UsedBytes": 322200320,
+          "CachedSearches": 545,
+          "CachedReports": 27872
+        },
+        {
+          "LogicalMinute": 765,
+          "UsedBytes": 319472160,
+          "CachedSearches": 528,
+          "CachedReports": 27636
+        },
+        {
+          "LogicalMinute": 766,
+          "UsedBytes": 309507440,
+          "CachedSearches": 487,
+          "CachedReports": 26774
+        },
+        {
+          "LogicalMinute": 767,
+          "UsedBytes": 305299600,
+          "CachedSearches": 477,
+          "CachedReports": 26410
+        },
+        {
+          "LogicalMinute": 768,
+          "UsedBytes": 305299600,
+          "CachedSearches": 477,
+          "CachedReports": 26410
+        },
+        {
+          "LogicalMinute": 770,
+          "UsedBytes": 305299600,
+          "CachedSearches": 477,
+          "CachedReports": 26410
+        },
+        {
+          "LogicalMinute": 771,
+          "UsedBytes": 298791320,
+          "CachedSearches": 467,
+          "CachedReports": 25847
+        },
+        {
+          "LogicalMinute": 772,
+          "UsedBytes": 292121200,
+          "CachedSearches": 456,
+          "CachedReports": 25270
+        },
+        {
+          "LogicalMinute": 774,
+          "UsedBytes": 292121200,
+          "CachedSearches": 456,
+          "CachedReports": 25270
+        },
+        {
+          "LogicalMinute": 776,
+          "UsedBytes": 284352880,
+          "CachedSearches": 441,
+          "CachedReports": 24598
+        },
+        {
+          "LogicalMinute": 777,
+          "UsedBytes": 252366360,
+          "CachedSearches": 402,
+          "CachedReports": 21831
+        },
+        {
+          "LogicalMinute": 779,
+          "UsedBytes": 249996560,
+          "CachedSearches": 396,
+          "CachedReports": 21626
+        },
+        {
+          "LogicalMinute": 782,
+          "UsedBytes": 243338000,
+          "CachedSearches": 385,
+          "CachedReports": 21050
+        },
+        {
+          "LogicalMinute": 783,
+          "UsedBytes": 242586600,
+          "CachedSearches": 380,
+          "CachedReports": 20985
+        },
+        {
+          "LogicalMinute": 784,
+          "UsedBytes": 240991320,
+          "CachedSearches": 370,
+          "CachedReports": 20847
+        },
+        {
+          "LogicalMinute": 786,
+          "UsedBytes": 233535120,
+          "CachedSearches": 322,
+          "CachedReports": 20202
+        },
+        {
+          "LogicalMinute": 792,
+          "UsedBytes": 225905520,
+          "CachedSearches": 312,
+          "CachedReports": 19542
+        },
+        {
+          "LogicalMinute": 793,
+          "UsedBytes": 216692200,
+          "CachedSearches": 299,
+          "CachedReports": 18745
+        },
+        {
+          "LogicalMinute": 794,
+          "UsedBytes": 206380680,
+          "CachedSearches": 284,
+          "CachedReports": 17853
+        },
+        {
+          "LogicalMinute": 795,
+          "UsedBytes": 202716160,
+          "CachedSearches": 279,
+          "CachedReports": 17536
+        },
+        {
+          "LogicalMinute": 941,
+          "UsedBytes": 184104560,
+          "CachedSearches": 260,
+          "CachedReports": 15926
+        },
+        {
+          "LogicalMinute": 942,
+          "UsedBytes": 77278600,
+          "CachedSearches": 147,
+          "CachedReports": 6685
+        },
+        {
+          "LogicalMinute": 943,
+          "UsedBytes": 75082200,
+          "CachedSearches": 137,
+          "CachedReports": 6495
+        },
+        {
+          "LogicalMinute": 946,
+          "UsedBytes": 49812040,
+          "CachedSearches": 95,
+          "CachedReports": 4309
+        },
+        {
+          "LogicalMinute": 947,
+          "UsedBytes": 30576200,
+          "CachedSearches": 74,
+          "CachedReports": 2645
+        },
+        {
+          "LogicalMinute": 948,
+          "UsedBytes": 13571440,
+          "CachedSearches": 29,
+          "CachedReports": 1174
+        },
+        {
+          "LogicalMinute": 949,
+          "UsedBytes": 13155280,
+          "CachedSearches": 27,
+          "CachedReports": 1138
+        },
+        {
+          "LogicalMinute": 952,
+          "UsedBytes": 1965200,
+          "CachedSearches": 10,
+          "CachedReports": 170
+        },
+        {
+          "LogicalMinute": 1132,
+          "UsedBytes": 959480,
+          "CachedSearches": 5,
+          "CachedReports": 83
+        },
+        {
+          "LogicalMinute": 1136,
+          "UsedBytes": 0,
+          "CachedSearches": 0,
+          "CachedReports": 0
+        }
+      ]
+    },
+    {
+      "Name": "completion-aware-conservative-unmapped",
+      "EndingSearchesBeforeFinalSweep": 883,
+      "EndingReportsBeforeFinalSweep": 44453,
+      "EndingUsedBytesBeforeFinalSweep": 513876680,
+      "EndingSearches": 0,
+      "EndingReports": 0,
+      "EndingUsedBytes": 0,
+      "PeakUsedBytes": 4699556160,
+      "MaximumResidentSearches": 5134,
+      "MaximumResidentReports": 406536,
+      "CacheHits": 1819,
+      "CacheMisses": 0,
+      "SearchesDropped": 0,
+      "ApiCalls": 9983,
+      "ApiCallsSaved": 1819,
+      "HitRate": 100,
+      "Timeline": [
+        {
+          "LogicalMinute": 0,
+          "UsedBytes": 201860720,
+          "CachedSearches": 201,
+          "CachedReports": 17462
+        },
+        {
+          "LogicalMinute": 1,
+          "UsedBytes": 293150040,
+          "CachedSearches": 294,
+          "CachedReports": 25359
+        },
+        {
+          "LogicalMinute": 2,
+          "UsedBytes": 437372600,
+          "CachedSearches": 436,
+          "CachedReports": 37835
+        },
+        {
+          "LogicalMinute": 3,
+          "UsedBytes": 514466240,
+          "CachedSearches": 509,
+          "CachedReports": 44504
+        },
+        {
+          "LogicalMinute": 4,
+          "UsedBytes": 592311280,
+          "CachedSearches": 584,
+          "CachedReports": 51238
+        },
+        {
+          "LogicalMinute": 5,
+          "UsedBytes": 641059800,
+          "CachedSearches": 615,
+          "CachedReports": 55455
+        },
+        {
+          "LogicalMinute": 6,
+          "UsedBytes": 704408600,
+          "CachedSearches": 685,
+          "CachedReports": 60935
+        },
+        {
+          "LogicalMinute": 7,
+          "UsedBytes": 757573040,
+          "CachedSearches": 730,
+          "CachedReports": 65534
+        },
+        {
+          "LogicalMinute": 8,
+          "UsedBytes": 852665600,
+          "CachedSearches": 822,
+          "CachedReports": 73760
+        },
+        {
+          "LogicalMinute": 9,
+          "UsedBytes": 874490880,
+          "CachedSearches": 857,
+          "CachedReports": 75648
+        },
+        {
+          "LogicalMinute": 10,
+          "UsedBytes": 883345840,
+          "CachedSearches": 885,
+          "CachedReports": 76414
+        },
+        {
+          "LogicalMinute": 11,
+          "UsedBytes": 952104720,
+          "CachedSearches": 976,
+          "CachedReports": 82362
+        },
+        {
+          "LogicalMinute": 12,
+          "UsedBytes": 1040388440,
+          "CachedSearches": 1091,
+          "CachedReports": 89999
+        },
+        {
+          "LogicalMinute": 13,
+          "UsedBytes": 1034700920,
+          "CachedSearches": 1098,
+          "CachedReports": 89507
+        },
+        {
+          "LogicalMinute": 14,
+          "UsedBytes": 1188911320,
+          "CachedSearches": 1239,
+          "CachedReports": 102847
+        },
+        {
+          "LogicalMinute": 15,
+          "UsedBytes": 1246757560,
+          "CachedSearches": 1305,
+          "CachedReports": 107851
+        },
+        {
+          "LogicalMinute": 16,
+          "UsedBytes": 1255982440,
+          "CachedSearches": 1315,
+          "CachedReports": 108649
+        },
+        {
+          "LogicalMinute": 17,
+          "UsedBytes": 1332347800,
+          "CachedSearches": 1395,
+          "CachedReports": 115255
+        },
+        {
+          "LogicalMinute": 18,
+          "UsedBytes": 1367675160,
+          "CachedSearches": 1426,
+          "CachedReports": 118311
+        },
+        {
+          "LogicalMinute": 19,
+          "UsedBytes": 1493817880,
+          "CachedSearches": 1538,
+          "CachedReports": 129223
+        },
+        {
+          "LogicalMinute": 20,
+          "UsedBytes": 1526313040,
+          "CachedSearches": 1573,
+          "CachedReports": 132034
+        },
+        {
+          "LogicalMinute": 21,
+          "UsedBytes": 1639127080,
+          "CachedSearches": 1679,
+          "CachedReports": 141793
+        },
+        {
+          "LogicalMinute": 22,
+          "UsedBytes": 1664720920,
+          "CachedSearches": 1702,
+          "CachedReports": 144007
+        },
+        {
+          "LogicalMinute": 23,
+          "UsedBytes": 1804134520,
+          "CachedSearches": 1839,
+          "CachedReports": 156067
+        },
+        {
+          "LogicalMinute": 24,
+          "UsedBytes": 1744161240,
+          "CachedSearches": 1799,
+          "CachedReports": 150879
+        },
+        {
+          "LogicalMinute": 25,
+          "UsedBytes": 1841219000,
+          "CachedSearches": 1891,
+          "CachedReports": 159275
+        },
+        {
+          "LogicalMinute": 26,
+          "UsedBytes": 1930901480,
+          "CachedSearches": 1997,
+          "CachedReports": 167033
+        },
+        {
+          "LogicalMinute": 27,
+          "UsedBytes": 2043438080,
+          "CachedSearches": 2105,
+          "CachedReports": 176768
+        },
+        {
+          "LogicalMinute": 28,
+          "UsedBytes": 2069552120,
+          "CachedSearches": 2138,
+          "CachedReports": 179027
+        },
+        {
+          "LogicalMinute": 29,
+          "UsedBytes": 2184527880,
+          "CachedSearches": 2253,
+          "CachedReports": 188973
+        },
+        {
+          "LogicalMinute": 30,
+          "UsedBytes": 2245032920,
+          "CachedSearches": 2317,
+          "CachedReports": 194207
+        },
+        {
+          "LogicalMinute": 31,
+          "UsedBytes": 2324854720,
+          "CachedSearches": 2384,
+          "CachedReports": 201112
+        },
+        {
+          "LogicalMinute": 32,
+          "UsedBytes": 2401347240,
+          "CachedSearches": 2462,
+          "CachedReports": 207729
+        },
+        {
+          "LogicalMinute": 33,
+          "UsedBytes": 2462430280,
+          "CachedSearches": 2524,
+          "CachedReports": 213013
+        },
+        {
+          "LogicalMinute": 34,
+          "UsedBytes": 2555314880,
+          "CachedSearches": 2612,
+          "CachedReports": 221048
+        },
+        {
+          "LogicalMinute": 35,
+          "UsedBytes": 2650546160,
+          "CachedSearches": 2703,
+          "CachedReports": 229286
+        },
+        {
+          "LogicalMinute": 36,
+          "UsedBytes": 2788260440,
+          "CachedSearches": 2821,
+          "CachedReports": 241199
+        },
+        {
+          "LogicalMinute": 37,
+          "UsedBytes": 2908287920,
+          "CachedSearches": 2942,
+          "CachedReports": 251582
+        },
+        {
+          "LogicalMinute": 38,
+          "UsedBytes": 2961094000,
+          "CachedSearches": 3007,
+          "CachedReports": 256150
+        },
+        {
+          "LogicalMinute": 39,
+          "UsedBytes": 3073480320,
+          "CachedSearches": 3129,
+          "CachedReports": 265872
+        },
+        {
+          "LogicalMinute": 40,
+          "UsedBytes": 3095929840,
+          "CachedSearches": 3158,
+          "CachedReports": 267814
+        },
+        {
+          "LogicalMinute": 41,
+          "UsedBytes": 3203299120,
+          "CachedSearches": 3267,
+          "CachedReports": 277102
+        },
+        {
+          "LogicalMinute": 42,
+          "UsedBytes": 3322424920,
+          "CachedSearches": 3400,
+          "CachedReports": 287407
+        },
+        {
+          "LogicalMinute": 43,
+          "UsedBytes": 3359578760,
+          "CachedSearches": 3454,
+          "CachedReports": 290621
+        },
+        {
+          "LogicalMinute": 44,
+          "UsedBytes": 3478912640,
+          "CachedSearches": 3580,
+          "CachedReports": 300944
+        },
+        {
+          "LogicalMinute": 45,
+          "UsedBytes": 3629689720,
+          "CachedSearches": 3728,
+          "CachedReports": 313987
+        },
+        {
+          "LogicalMinute": 46,
+          "UsedBytes": 3773415200,
+          "CachedSearches": 3875,
+          "CachedReports": 326420
+        },
+        {
+          "LogicalMinute": 47,
+          "UsedBytes": 3817112000,
+          "CachedSearches": 3931,
+          "CachedReports": 330200
+        },
+        {
+          "LogicalMinute": 48,
+          "UsedBytes": 3903904480,
+          "CachedSearches": 4028,
+          "CachedReports": 337708
+        },
+        {
+          "LogicalMinute": 49,
+          "UsedBytes": 4004268400,
+          "CachedSearches": 4179,
+          "CachedReports": 346390
+        },
+        {
+          "LogicalMinute": 50,
+          "UsedBytes": 4086922400,
+          "CachedSearches": 4286,
+          "CachedReports": 353540
+        },
+        {
+          "LogicalMinute": 51,
+          "UsedBytes": 4160201240,
+          "CachedSearches": 4371,
+          "CachedReports": 359879
+        },
+        {
+          "LogicalMinute": 52,
+          "UsedBytes": 4268738080,
+          "CachedSearches": 4488,
+          "CachedReports": 369268
+        },
+        {
+          "LogicalMinute": 53,
+          "UsedBytes": 4317093560,
+          "CachedSearches": 4568,
+          "CachedReports": 373451
+        },
+        {
+          "LogicalMinute": 54,
+          "UsedBytes": 4418474760,
+          "CachedSearches": 4687,
+          "CachedReports": 382221
+        },
+        {
+          "LogicalMinute": 55,
+          "UsedBytes": 4527381520,
+          "CachedSearches": 4814,
+          "CachedReports": 391642
+        },
+        {
+          "LogicalMinute": 56,
+          "UsedBytes": 4454068000,
+          "CachedSearches": 4764,
+          "CachedReports": 385300
+        },
+        {
+          "LogicalMinute": 57,
+          "UsedBytes": 4544467200,
+          "CachedSearches": 4876,
+          "CachedReports": 393120
+        },
+        {
+          "LogicalMinute": 58,
+          "UsedBytes": 4630300200,
+          "CachedSearches": 4960,
+          "CachedReports": 400545
+        },
+        {
+          "LogicalMinute": 59,
+          "UsedBytes": 4637224640,
+          "CachedSearches": 4993,
+          "CachedReports": 401144
+        },
+        {
+          "LogicalMinute": 60,
+          "UsedBytes": 4647489920,
+          "CachedSearches": 5015,
+          "CachedReports": 402032
+        },
+        {
+          "LogicalMinute": 61,
+          "UsedBytes": 4682262400,
+          "CachedSearches": 5076,
+          "CachedReports": 405040
+        },
+        {
+          "LogicalMinute": 62,
+          "UsedBytes": 4517093120,
+          "CachedSearches": 4952,
+          "CachedReports": 390752
+        },
+        {
+          "LogicalMinute": 63,
+          "UsedBytes": 4459385600,
+          "CachedSearches": 4878,
+          "CachedReports": 385760
+        },
+        {
+          "LogicalMinute": 64,
+          "UsedBytes": 4469974560,
+          "CachedSearches": 4886,
+          "CachedReports": 386676
+        },
+        {
+          "LogicalMinute": 65,
+          "UsedBytes": 4511463400,
+          "CachedSearches": 4906,
+          "CachedReports": 390265
+        },
+        {
+          "LogicalMinute": 66,
+          "UsedBytes": 4478112800,
+          "CachedSearches": 4859,
+          "CachedReports": 387380
+        },
+        {
+          "LogicalMinute": 67,
+          "UsedBytes": 4516596040,
+          "CachedSearches": 4888,
+          "CachedReports": 390709
+        },
+        {
+          "LogicalMinute": 68,
+          "UsedBytes": 4496643480,
+          "CachedSearches": 4868,
+          "CachedReports": 388983
+        },
+        {
+          "LogicalMinute": 69,
+          "UsedBytes": 4478621440,
+          "CachedSearches": 4853,
+          "CachedReports": 387424
+        },
+        {
+          "LogicalMinute": 70,
+          "UsedBytes": 4474552320,
+          "CachedSearches": 4850,
+          "CachedReports": 387072
+        },
+        {
+          "LogicalMinute": 71,
+          "UsedBytes": 4415827520,
+          "CachedSearches": 4796,
+          "CachedReports": 381992
+        },
+        {
+          "LogicalMinute": 72,
+          "UsedBytes": 4411874000,
+          "CachedSearches": 4790,
+          "CachedReports": 381650
+        },
+        {
+          "LogicalMinute": 73,
+          "UsedBytes": 4342548680,
+          "CachedSearches": 4734,
+          "CachedReports": 375653
+        },
+        {
+          "LogicalMinute": 74,
+          "UsedBytes": 4314585040,
+          "CachedSearches": 4712,
+          "CachedReports": 373234
+        },
+        {
+          "LogicalMinute": 75,
+          "UsedBytes": 4264460880,
+          "CachedSearches": 4716,
+          "CachedReports": 368898
+        },
+        {
+          "LogicalMinute": 76,
+          "UsedBytes": 4262738440,
+          "CachedSearches": 4720,
+          "CachedReports": 368749
+        },
+        {
+          "LogicalMinute": 77,
+          "UsedBytes": 4204267960,
+          "CachedSearches": 4661,
+          "CachedReports": 363691
+        },
+        {
+          "LogicalMinute": 78,
+          "UsedBytes": 4225445880,
+          "CachedSearches": 4677,
+          "CachedReports": 365523
+        },
+        {
+          "LogicalMinute": 79,
+          "UsedBytes": 4214186440,
+          "CachedSearches": 4660,
+          "CachedReports": 364549
+        },
+        {
+          "LogicalMinute": 80,
+          "UsedBytes": 4199008160,
+          "CachedSearches": 4644,
+          "CachedReports": 363236
+        },
+        {
+          "LogicalMinute": 81,
+          "UsedBytes": 4196360920,
+          "CachedSearches": 4642,
+          "CachedReports": 363007
+        },
+        {
+          "LogicalMinute": 82,
+          "UsedBytes": 4208637640,
+          "CachedSearches": 4663,
+          "CachedReports": 364069
+        },
+        {
+          "LogicalMinute": 83,
+          "UsedBytes": 4157241880,
+          "CachedSearches": 4612,
+          "CachedReports": 359623
+        },
+        {
+          "LogicalMinute": 84,
+          "UsedBytes": 4134029400,
+          "CachedSearches": 4592,
+          "CachedReports": 357615
+        },
+        {
+          "LogicalMinute": 85,
+          "UsedBytes": 4095361200,
+          "CachedSearches": 4558,
+          "CachedReports": 354270
+        },
+        {
+          "LogicalMinute": 86,
+          "UsedBytes": 4057467520,
+          "CachedSearches": 4521,
+          "CachedReports": 350992
+        },
+        {
+          "LogicalMinute": 87,
+          "UsedBytes": 4044185080,
+          "CachedSearches": 4506,
+          "CachedReports": 349843
+        },
+        {
+          "LogicalMinute": 88,
+          "UsedBytes": 4017967000,
+          "CachedSearches": 4480,
+          "CachedReports": 347575
+        },
+        {
+          "LogicalMinute": 89,
+          "UsedBytes": 3973830920,
+          "CachedSearches": 4436,
+          "CachedReports": 343757
+        },
+        {
+          "LogicalMinute": 90,
+          "UsedBytes": 3912828800,
+          "CachedSearches": 4371,
+          "CachedReports": 338480
+        },
+        {
+          "LogicalMinute": 91,
+          "UsedBytes": 3879015800,
+          "CachedSearches": 4340,
+          "CachedReports": 335555
+        },
+        {
+          "LogicalMinute": 92,
+          "UsedBytes": 3831908800,
+          "CachedSearches": 4295,
+          "CachedReports": 331480
+        },
+        {
+          "LogicalMinute": 93,
+          "UsedBytes": 3823886160,
+          "CachedSearches": 4286,
+          "CachedReports": 330786
+        },
+        {
+          "LogicalMinute": 94,
+          "UsedBytes": 3788824680,
+          "CachedSearches": 4252,
+          "CachedReports": 327753
+        },
+        {
+          "LogicalMinute": 95,
+          "UsedBytes": 3770132160,
+          "CachedSearches": 4242,
+          "CachedReports": 326136
+        },
+        {
+          "LogicalMinute": 96,
+          "UsedBytes": 3789703240,
+          "CachedSearches": 4279,
+          "CachedReports": 327829
+        },
+        {
+          "LogicalMinute": 97,
+          "UsedBytes": 3790593360,
+          "CachedSearches": 4307,
+          "CachedReports": 327906
+        },
+        {
+          "LogicalMinute": 98,
+          "UsedBytes": 3786628280,
+          "CachedSearches": 4303,
+          "CachedReports": 327563
+        },
+        {
+          "LogicalMinute": 99,
+          "UsedBytes": 3780316520,
+          "CachedSearches": 4314,
+          "CachedReports": 327017
+        },
+        {
+          "LogicalMinute": 100,
+          "UsedBytes": 3791888080,
+          "CachedSearches": 4329,
+          "CachedReports": 328018
+        },
+        {
+          "LogicalMinute": 101,
+          "UsedBytes": 3797610280,
+          "CachedSearches": 4337,
+          "CachedReports": 328513
+        },
+        {
+          "LogicalMinute": 102,
+          "UsedBytes": 3797610280,
+          "CachedSearches": 4337,
+          "CachedReports": 328513
+        },
+        {
+          "LogicalMinute": 103,
+          "UsedBytes": 3789263960,
+          "CachedSearches": 4331,
+          "CachedReports": 327791
+        },
+        {
+          "LogicalMinute": 104,
+          "UsedBytes": 3775091400,
+          "CachedSearches": 4317,
+          "CachedReports": 326565
+        },
+        {
+          "LogicalMinute": 105,
+          "UsedBytes": 3751798000,
+          "CachedSearches": 4295,
+          "CachedReports": 324550
+        },
+        {
+          "LogicalMinute": 106,
+          "UsedBytes": 3735244080,
+          "CachedSearches": 4279,
+          "CachedReports": 323118
+        },
+        {
+          "LogicalMinute": 107,
+          "UsedBytes": 3699038160,
+          "CachedSearches": 4251,
+          "CachedReports": 319986
+        },
+        {
+          "LogicalMinute": 108,
+          "UsedBytes": 3699038160,
+          "CachedSearches": 4251,
+          "CachedReports": 319986
+        },
+        {
+          "LogicalMinute": 109,
+          "UsedBytes": 3700344440,
+          "CachedSearches": 4260,
+          "CachedReports": 320099
+        },
+        {
+          "LogicalMinute": 110,
+          "UsedBytes": 3649353280,
+          "CachedSearches": 4231,
+          "CachedReports": 315688
+        },
+        {
+          "LogicalMinute": 111,
+          "UsedBytes": 3575623600,
+          "CachedSearches": 4176,
+          "CachedReports": 309310
+        },
+        {
+          "LogicalMinute": 112,
+          "UsedBytes": 3525615040,
+          "CachedSearches": 4128,
+          "CachedReports": 304984
+        },
+        {
+          "LogicalMinute": 113,
+          "UsedBytes": 3515268840,
+          "CachedSearches": 4117,
+          "CachedReports": 304089
+        },
+        {
+          "LogicalMinute": 114,
+          "UsedBytes": 3515777480,
+          "CachedSearches": 4122,
+          "CachedReports": 304133
+        },
+        {
+          "LogicalMinute": 115,
+          "UsedBytes": 3464393280,
+          "CachedSearches": 4070,
+          "CachedReports": 299688
+        },
+        {
+          "LogicalMinute": 116,
+          "UsedBytes": 3464393280,
+          "CachedSearches": 4070,
+          "CachedReports": 299688
+        },
+        {
+          "LogicalMinute": 117,
+          "UsedBytes": 3316968600,
+          "CachedSearches": 3931,
+          "CachedReports": 286935
+        },
+        {
+          "LogicalMinute": 118,
+          "UsedBytes": 3320355680,
+          "CachedSearches": 3938,
+          "CachedReports": 287228
+        },
+        {
+          "LogicalMinute": 119,
+          "UsedBytes": 3313963000,
+          "CachedSearches": 3930,
+          "CachedReports": 286675
+        },
+        {
+          "LogicalMinute": 120,
+          "UsedBytes": 3313963000,
+          "CachedSearches": 3930,
+          "CachedReports": 286675
+        },
+        {
+          "LogicalMinute": 121,
+          "UsedBytes": 3301732520,
+          "CachedSearches": 3918,
+          "CachedReports": 285617
+        },
+        {
+          "LogicalMinute": 122,
+          "UsedBytes": 3220072680,
+          "CachedSearches": 3840,
+          "CachedReports": 278553
+        },
+        {
+          "LogicalMinute": 123,
+          "UsedBytes": 3208189000,
+          "CachedSearches": 3827,
+          "CachedReports": 277525
+        },
+        {
+          "LogicalMinute": 124,
+          "UsedBytes": 3137014080,
+          "CachedSearches": 3759,
+          "CachedReports": 271368
+        },
+        {
+          "LogicalMinute": 125,
+          "UsedBytes": 3137014080,
+          "CachedSearches": 3759,
+          "CachedReports": 271368
+        },
+        {
+          "LogicalMinute": 126,
+          "UsedBytes": 3137014080,
+          "CachedSearches": 3759,
+          "CachedReports": 271368
+        },
+        {
+          "LogicalMinute": 127,
+          "UsedBytes": 3131291880,
+          "CachedSearches": 3751,
+          "CachedReports": 270873
+        },
+        {
+          "LogicalMinute": 128,
+          "UsedBytes": 3106761560,
+          "CachedSearches": 3724,
+          "CachedReports": 268751
+        },
+        {
+          "LogicalMinute": 129,
+          "UsedBytes": 3044395360,
+          "CachedSearches": 3662,
+          "CachedReports": 263356
+        },
+        {
+          "LogicalMinute": 130,
+          "UsedBytes": 3003345800,
+          "CachedSearches": 3621,
+          "CachedReports": 259805
+        },
+        {
+          "LogicalMinute": 131,
+          "UsedBytes": 2939777360,
+          "CachedSearches": 3562,
+          "CachedReports": 254306
+        },
+        {
+          "LogicalMinute": 132,
+          "UsedBytes": 2899063040,
+          "CachedSearches": 3521,
+          "CachedReports": 250784
+        },
+        {
+          "LogicalMinute": 133,
+          "UsedBytes": 2875399720,
+          "CachedSearches": 3528,
+          "CachedReports": 248737
+        },
+        {
+          "LogicalMinute": 134,
+          "UsedBytes": 2803161280,
+          "CachedSearches": 3466,
+          "CachedReports": 242488
+        },
+        {
+          "LogicalMinute": 135,
+          "UsedBytes": 2751869560,
+          "CachedSearches": 3432,
+          "CachedReports": 238051
+        },
+        {
+          "LogicalMinute": 136,
+          "UsedBytes": 2751083480,
+          "CachedSearches": 3424,
+          "CachedReports": 237983
+        },
+        {
+          "LogicalMinute": 137,
+          "UsedBytes": 2665551040,
+          "CachedSearches": 3337,
+          "CachedReports": 230584
+        },
+        {
+          "LogicalMinute": 138,
+          "UsedBytes": 2453529080,
+          "CachedSearches": 3110,
+          "CachedReports": 212243
+        },
+        {
+          "LogicalMinute": 139,
+          "UsedBytes": 2471886360,
+          "CachedSearches": 3146,
+          "CachedReports": 213831
+        },
+        {
+          "LogicalMinute": 140,
+          "UsedBytes": 2372562840,
+          "CachedSearches": 3030,
+          "CachedReports": 205239
+        },
+        {
+          "LogicalMinute": 141,
+          "UsedBytes": 2410421840,
+          "CachedSearches": 3074,
+          "CachedReports": 208514
+        },
+        {
+          "LogicalMinute": 142,
+          "UsedBytes": 2389486680,
+          "CachedSearches": 3048,
+          "CachedReports": 206703
+        },
+        {
+          "LogicalMinute": 143,
+          "UsedBytes": 2363291720,
+          "CachedSearches": 3025,
+          "CachedReports": 204437
+        },
+        {
+          "LogicalMinute": 144,
+          "UsedBytes": 2360875680,
+          "CachedSearches": 3022,
+          "CachedReports": 204228
+        },
+        {
+          "LogicalMinute": 146,
+          "UsedBytes": 2364077800,
+          "CachedSearches": 3027,
+          "CachedReports": 204505
+        },
+        {
+          "LogicalMinute": 148,
+          "UsedBytes": 2321687280,
+          "CachedSearches": 2981,
+          "CachedReports": 200838
+        },
+        {
+          "LogicalMinute": 149,
+          "UsedBytes": 2313676200,
+          "CachedSearches": 2972,
+          "CachedReports": 200145
+        },
+        {
+          "LogicalMinute": 150,
+          "UsedBytes": 2306035040,
+          "CachedSearches": 2970,
+          "CachedReports": 199484
+        },
+        {
+          "LogicalMinute": 151,
+          "UsedBytes": 2308300800,
+          "CachedSearches": 2975,
+          "CachedReports": 199680
+        },
+        {
+          "LogicalMinute": 152,
+          "UsedBytes": 2320242280,
+          "CachedSearches": 3005,
+          "CachedReports": 200713
+        },
+        {
+          "LogicalMinute": 153,
+          "UsedBytes": 2322115000,
+          "CachedSearches": 3010,
+          "CachedReports": 200875
+        },
+        {
+          "LogicalMinute": 155,
+          "UsedBytes": 2276672640,
+          "CachedSearches": 2967,
+          "CachedReports": 196944
+        },
+        {
+          "LogicalMinute": 156,
+          "UsedBytes": 2262003000,
+          "CachedSearches": 2952,
+          "CachedReports": 195675
+        },
+        {
+          "LogicalMinute": 157,
+          "UsedBytes": 2262003000,
+          "CachedSearches": 2952,
+          "CachedReports": 195675
+        },
+        {
+          "LogicalMinute": 160,
+          "UsedBytes": 2241183440,
+          "CachedSearches": 2932,
+          "CachedReports": 193874
+        },
+        {
+          "LogicalMinute": 161,
+          "UsedBytes": 2232016360,
+          "CachedSearches": 2923,
+          "CachedReports": 193081
+        },
+        {
+          "LogicalMinute": 162,
+          "UsedBytes": 2234131840,
+          "CachedSearches": 2938,
+          "CachedReports": 193264
+        },
+        {
+          "LogicalMinute": 163,
+          "UsedBytes": 2228166880,
+          "CachedSearches": 2953,
+          "CachedReports": 192748
+        },
+        {
+          "LogicalMinute": 164,
+          "UsedBytes": 2224548600,
+          "CachedSearches": 2953,
+          "CachedReports": 192435
+        },
+        {
+          "LogicalMinute": 165,
+          "UsedBytes": 2227010880,
+          "CachedSearches": 2968,
+          "CachedReports": 192648
+        },
+        {
+          "LogicalMinute": 166,
+          "UsedBytes": 2216919000,
+          "CachedSearches": 2968,
+          "CachedReports": 191775
+        },
+        {
+          "LogicalMinute": 167,
+          "UsedBytes": 2195324920,
+          "CachedSearches": 2949,
+          "CachedReports": 189907
+        },
+        {
+          "LogicalMinute": 168,
+          "UsedBytes": 2197047360,
+          "CachedSearches": 2959,
+          "CachedReports": 190056
+        },
+        {
+          "LogicalMinute": 169,
+          "UsedBytes": 2200157000,
+          "CachedSearches": 2979,
+          "CachedReports": 190325
+        },
+        {
+          "LogicalMinute": 170,
+          "UsedBytes": 2157569960,
+          "CachedSearches": 2938,
+          "CachedReports": 186641
+        },
+        {
+          "LogicalMinute": 171,
+          "UsedBytes": 2157569960,
+          "CachedSearches": 2938,
+          "CachedReports": 186641
+        },
+        {
+          "LogicalMinute": 172,
+          "UsedBytes": 2147119720,
+          "CachedSearches": 2920,
+          "CachedReports": 185737
+        },
+        {
+          "LogicalMinute": 173,
+          "UsedBytes": 2133478920,
+          "CachedSearches": 2861,
+          "CachedReports": 184557
+        },
+        {
+          "LogicalMinute": 174,
+          "UsedBytes": 2094475480,
+          "CachedSearches": 2804,
+          "CachedReports": 181183
+        },
+        {
+          "LogicalMinute": 175,
+          "UsedBytes": 2089273480,
+          "CachedSearches": 2769,
+          "CachedReports": 180733
+        },
+        {
+          "LogicalMinute": 176,
+          "UsedBytes": 2076534360,
+          "CachedSearches": 2719,
+          "CachedReports": 179631
+        },
+        {
+          "LogicalMinute": 177,
+          "UsedBytes": 2074303280,
+          "CachedSearches": 2699,
+          "CachedReports": 179438
+        },
+        {
+          "LogicalMinute": 178,
+          "UsedBytes": 2077019880,
+          "CachedSearches": 2694,
+          "CachedReports": 179673
+        },
+        {
+          "LogicalMinute": 179,
+          "UsedBytes": 2079574640,
+          "CachedSearches": 2693,
+          "CachedReports": 179894
+        },
+        {
+          "LogicalMinute": 180,
+          "UsedBytes": 2094521720,
+          "CachedSearches": 2705,
+          "CachedReports": 181187
+        },
+        {
+          "LogicalMinute": 181,
+          "UsedBytes": 2136461400,
+          "CachedSearches": 2771,
+          "CachedReports": 184815
+        },
+        {
+          "LogicalMinute": 182,
+          "UsedBytes": 2136461400,
+          "CachedSearches": 2771,
+          "CachedReports": 184815
+        },
+        {
+          "LogicalMinute": 183,
+          "UsedBytes": 2136461400,
+          "CachedSearches": 2771,
+          "CachedReports": 184815
+        },
+        {
+          "LogicalMinute": 184,
+          "UsedBytes": 2143316480,
+          "CachedSearches": 2781,
+          "CachedReports": 185408
+        },
+        {
+          "LogicalMinute": 185,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 186,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 187,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 188,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 189,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 190,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 191,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 192,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 193,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 194,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 195,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 196,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 197,
+          "UsedBytes": 2146634200,
+          "CachedSearches": 2786,
+          "CachedReports": 185695
+        },
+        {
+          "LogicalMinute": 198,
+          "UsedBytes": 1009384520,
+          "CachedSearches": 1613,
+          "CachedReports": 87317
+        },
+        {
+          "LogicalMinute": 286,
+          "UsedBytes": 1009384520,
+          "CachedSearches": 1615,
+          "CachedReports": 87317
+        },
+        {
+          "LogicalMinute": 755,
+          "UsedBytes": 967791640,
+          "CachedSearches": 1575,
+          "CachedReports": 83719
+        },
+        {
+          "LogicalMinute": 756,
+          "UsedBytes": 951515160,
+          "CachedSearches": 1558,
+          "CachedReports": 82311
+        },
+        {
+          "LogicalMinute": 759,
+          "UsedBytes": 887611480,
+          "CachedSearches": 1497,
+          "CachedReports": 76783
+        },
+        {
+          "LogicalMinute": 760,
+          "UsedBytes": 868861160,
+          "CachedSearches": 1478,
+          "CachedReports": 75161
+        },
+        {
+          "LogicalMinute": 761,
+          "UsedBytes": 868861160,
+          "CachedSearches": 1478,
+          "CachedReports": 75161
+        },
+        {
+          "LogicalMinute": 762,
+          "UsedBytes": 859058280,
+          "CachedSearches": 1466,
+          "CachedReports": 74313
+        },
+        {
+          "LogicalMinute": 763,
+          "UsedBytes": 846677520,
+          "CachedSearches": 1441,
+          "CachedReports": 73242
+        },
+        {
+          "LogicalMinute": 764,
+          "UsedBytes": 835637720,
+          "CachedSearches": 1411,
+          "CachedReports": 72287
+        },
+        {
+          "LogicalMinute": 765,
+          "UsedBytes": 832909560,
+          "CachedSearches": 1398,
+          "CachedReports": 72051
+        },
+        {
+          "LogicalMinute": 766,
+          "UsedBytes": 822944840,
+          "CachedSearches": 1359,
+          "CachedReports": 71189
+        },
+        {
+          "LogicalMinute": 767,
+          "UsedBytes": 818737000,
+          "CachedSearches": 1349,
+          "CachedReports": 70825
+        },
+        {
+          "LogicalMinute": 768,
+          "UsedBytes": 818737000,
+          "CachedSearches": 1349,
+          "CachedReports": 70825
+        },
+        {
+          "LogicalMinute": 770,
+          "UsedBytes": 818737000,
+          "CachedSearches": 1349,
+          "CachedReports": 70825
+        },
+        {
+          "LogicalMinute": 771,
+          "UsedBytes": 812228720,
+          "CachedSearches": 1339,
+          "CachedReports": 70262
+        },
+        {
+          "LogicalMinute": 772,
+          "UsedBytes": 805558600,
+          "CachedSearches": 1328,
+          "CachedReports": 69685
+        },
+        {
+          "LogicalMinute": 774,
+          "UsedBytes": 805558600,
+          "CachedSearches": 1328,
+          "CachedReports": 69685
+        },
+        {
+          "LogicalMinute": 776,
+          "UsedBytes": 797790280,
+          "CachedSearches": 1313,
+          "CachedReports": 69013
+        },
+        {
+          "LogicalMinute": 777,
+          "UsedBytes": 765803760,
+          "CachedSearches": 1274,
+          "CachedReports": 66246
+        },
+        {
+          "LogicalMinute": 779,
+          "UsedBytes": 763538000,
+          "CachedSearches": 1269,
+          "CachedReports": 66050
+        },
+        {
+          "LogicalMinute": 782,
+          "UsedBytes": 756879440,
+          "CachedSearches": 1258,
+          "CachedReports": 65474
+        },
+        {
+          "LogicalMinute": 783,
+          "UsedBytes": 756128040,
+          "CachedSearches": 1253,
+          "CachedReports": 65409
+        },
+        {
+          "LogicalMinute": 784,
+          "UsedBytes": 754532760,
+          "CachedSearches": 1243,
+          "CachedReports": 65271
+        },
+        {
+          "LogicalMinute": 786,
+          "UsedBytes": 747076560,
+          "CachedSearches": 1195,
+          "CachedReports": 64626
+        },
+        {
+          "LogicalMinute": 792,
+          "UsedBytes": 739446960,
+          "CachedSearches": 1185,
+          "CachedReports": 63966
+        },
+        {
+          "LogicalMinute": 793,
+          "UsedBytes": 730233640,
+          "CachedSearches": 1172,
+          "CachedReports": 63169
+        },
+        {
+          "LogicalMinute": 794,
+          "UsedBytes": 719922120,
+          "CachedSearches": 1158,
+          "CachedReports": 62277
+        },
+        {
+          "LogicalMinute": 795,
+          "UsedBytes": 716257600,
+          "CachedSearches": 1153,
+          "CachedReports": 61960
+        },
+        {
+          "LogicalMinute": 941,
+          "UsedBytes": 697646000,
+          "CachedSearches": 1134,
+          "CachedReports": 60350
+        },
+        {
+          "LogicalMinute": 942,
+          "UsedBytes": 591155280,
+          "CachedSearches": 1030,
+          "CachedReports": 51138
+        },
+        {
+          "LogicalMinute": 943,
+          "UsedBytes": 588958880,
+          "CachedSearches": 1020,
+          "CachedReports": 50948
+        },
+        {
+          "LogicalMinute": 946,
+          "UsedBytes": 563688720,
+          "CachedSearches": 978,
+          "CachedReports": 48762
+        },
+        {
+          "LogicalMinute": 947,
+          "UsedBytes": 544452880,
+          "CachedSearches": 957,
+          "CachedReports": 47098
+        },
+        {
+          "LogicalMinute": 948,
+          "UsedBytes": 527448120,
+          "CachedSearches": 912,
+          "CachedReports": 45627
+        },
+        {
+          "LogicalMinute": 949,
+          "UsedBytes": 527031960,
+          "CachedSearches": 910,
+          "CachedReports": 45591
+        },
+        {
+          "LogicalMinute": 952,
+          "UsedBytes": 515841880,
+          "CachedSearches": 894,
+          "CachedReports": 44623
+        },
+        {
+          "LogicalMinute": 1132,
+          "UsedBytes": 514836160,
+          "CachedSearches": 889,
+          "CachedReports": 44536
+        },
+        {
+          "LogicalMinute": 1136,
+          "UsedBytes": 513876680,
+          "CachedSearches": 883,
+          "CachedReports": 44453
+        }
+      ]
+    }
+  ]
+}

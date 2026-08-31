@@ -94,6 +94,15 @@ namespace NzbDrone.Core.Test.Configuration
                     value = 0;
                 }
 
+                if (propertyInfo.Name == nameof(ConfigService.DownloadClientPollingInterval))
+                {
+                    value = 60;
+                }
+                else if (propertyInfo.Name == nameof(ConfigService.AutomaticSearchCacheSize))
+                {
+                    value = 256;
+                }
+
                 propertyInfo.GetSetMethod().Invoke(configProvider, new[] { value });
                 var returnValue = propertyInfo.GetGetMethod().Invoke(configProvider, null);
 

@@ -1,0 +1,583 @@
+{
+  "method": {
+    "seed": 314159265,
+    "episodesPerRun": 4000,
+    "replications": 1000,
+    "canonicalFailureShare": 0.525,
+    "failureShares": [
+      0.5,
+      0.525,
+      0.55
+    ],
+    "failureTemplates": 402,
+    "firstAttemptSuccessTemplates": 3524,
+    "sampling": "Bootstrap sampling with replacement from measured episode profiles",
+    "sharedPopulation": "Every Stock/Turbo pair uses the same generated population and initial-arrival sample",
+    "normalizedDownloadMBps": 170.4,
+    "databaseIntegrity": "ok",
+    "foreignKeyErrors": 0
+  },
+  "inputs": {
+    "criticalIndexerSeconds": 2.2178,
+    "aggregateIndexerSecondsPerCall": 1.88878,
+    "savedCallsPerRetry": 4.9314917127071825,
+    "initialCallsPerEpisode": 2.0045848191543554,
+    "fixEligibleRateAmongFailureEpisodes": 0.02736318407960199,
+    "fixExtraAttemptsPerEligibleEpisode": 5.090909090909091,
+    "fixRecoveredEpisodesPerEligibleEpisode": 0.09090909090909091,
+    "fixServiceSecondsPerExtraAttempt": 0.2517857142857143
+  },
+  "summary": [
+    {
+      "failureShare": 0.5,
+      "failureEpisodes": 2000,
+      "stockMedian": "5:58:54",
+      "turboMedian": "5:59:14",
+      "medianWallSaved": "-0:00:27",
+      "p10WallSaved": "-0:00:51",
+      "p90WallSaved": "-0:00:01",
+      "medianApiCallsSaved": 24059,
+      "medianApiSavingsPercent": 75.0,
+      "medianIndexerTimeAvoided": "12:37:22",
+      "medianPollingWaitAvoided": "33:52:45"
+    },
+    {
+      "failureShare": 0.525,
+      "failureEpisodes": 2100,
+      "stockMedian": "5:59:33",
+      "turboMedian": "6:00:03",
+      "medianWallSaved": "-0:00:34",
+      "p10WallSaved": "-0:00:57",
+      "p90WallSaved": "-0:00:09",
+      "medianApiCallsSaved": 25296,
+      "medianApiSavingsPercent": 75.9,
+      "medianIndexerTimeAvoided": "13:16:19",
+      "medianPollingWaitAvoided": "35:37:18"
+    },
+    {
+      "failureShare": 0.55,
+      "failureEpisodes": 2200,
+      "stockMedian": "5:59:55",
+      "turboMedian": "6:00:36",
+      "medianWallSaved": "-0:00:41",
+      "p10WallSaved": "-0:01:03",
+      "p90WallSaved": "-0:00:16",
+      "medianApiCallsSaved": 26504,
+      "medianApiSavingsPercent": 76.8,
+      "medianIndexerTimeAvoided": "13:54:20",
+      "medianPollingWaitAvoided": "37:19:22"
+    }
+  ],
+  "fullDistributions": {
+    "0.500": {
+      "Stock": {
+        "wallSeconds": {
+          "mean": 21572.94337623369,
+          "median": 21533.95508936998,
+          "p10": 21326.58019077551,
+          "p90": 21798.988688370326
+        },
+        "sabIdleSeconds": {
+          "mean": 113.59187116801618,
+          "median": 69.04124187710141,
+          "p10": 41.87349556062428,
+          "p90": 102.0586453916779
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21459.35150506567,
+          "median": 21451.40447721447,
+          "p10": 21263.295613678976,
+          "p90": 21672.97603792515
+        },
+        "sabAttempts": {
+          "mean": 8767.029,
+          "median": 8761.0,
+          "p10": 8615.9,
+          "p90": 8927.1
+        },
+        "successfulEpisodes": {
+          "mean": 3572.504,
+          "median": 3573.0,
+          "p10": 3548.0,
+          "p90": 3597.0
+        },
+        "externalApiCalls": {
+          "mean": 30720.781923026265,
+          "median": 30703.201155070463,
+          "p10": 29962.984248993114,
+          "p90": 31536.623254517974
+        },
+        "apiCallsSaved": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        }
+      },
+      "Turbo": {
+        "wallSeconds": {
+          "mean": 21598.991875381646,
+          "median": 21554.473187536132,
+          "p10": 21361.284547494302,
+          "p90": 21825.308635994574
+        },
+        "sabIdleSeconds": {
+          "mean": 69.49111658462803,
+          "median": 22.320757873826288,
+          "p10": 14.0,
+          "p90": 34.0
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21529.500758797018,
+          "median": 21521.55373094581,
+          "p10": 21333.444867410322,
+          "p90": 21743.12529165649
+        },
+        "sabAttempts": {
+          "mean": 9046.029,
+          "median": 9040.0,
+          "p10": 8894.9,
+          "p90": 9206.1
+        },
+        "successfulEpisodes": {
+          "mean": 3577.479124378109,
+          "median": 3577.9751243781093,
+          "p10": 3552.9751243781093,
+          "p90": 3601.9751243781093
+        },
+        "externalApiCalls": {
+          "mean": 8018.339276617423,
+          "median": 8018.339276617422,
+          "p10": 8018.339276617422,
+          "p90": 8018.339276617422
+        },
+        "apiCallsSaved": {
+          "mean": 24076.390586267557,
+          "median": 24058.809818311758,
+          "p10": 23318.59291223441,
+          "p90": 24892.23191775927
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 45475.00501153043,
+          "median": 45441.79880863088,
+          "p10": 44043.69192077011,
+          "p90": 47015.94980162535
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 122054.29912935322,
+          "median": 121965.17412935322,
+          "p10": 118212.67412935322,
+          "p90": 126190.17412935322
+        }
+      },
+      "TurboMinusStock": {
+        "wallSeconds": {
+          "mean": -26.048499147954207,
+          "median": -26.71518596138958,
+          "p10": -50.8442305946035,
+          "p90": -1.3570538704330772
+        },
+        "sabIdleSeconds": {
+          "mean": 44.10075458338814,
+          "median": 43.43406776995289,
+          "p10": 19.305023136738967,
+          "p90": 68.7921998609123
+        },
+        "normalizedTransferSeconds": {
+          "mean": -70.1492537313426,
+          "median": -70.14925373134247,
+          "p10": -70.14925373134975,
+          "p90": -70.14925373133883
+        },
+        "sabAttempts": {
+          "mean": 279.0,
+          "median": 279.0,
+          "p10": 279.0,
+          "p90": 279.0
+        },
+        "successfulEpisodes": {
+          "mean": 4.975124378109285,
+          "median": 4.975124378109285,
+          "p10": 4.975124378109285,
+          "p90": 4.975124378109285
+        },
+        "externalApiCalls": {
+          "mean": 22702.44264640884,
+          "median": 22684.86187845304,
+          "p10": 21944.644972375692,
+          "p90": 23518.283977900548
+        },
+        "apiCallsSaved": {
+          "mean": 24076.390586267557,
+          "median": 24058.809818311758,
+          "p10": 23318.59291223441,
+          "p90": 24892.23191775927
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 45475.00501153043,
+          "median": 45441.79880863088,
+          "p10": 44043.69192077011,
+          "p90": 47015.94980162535
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 122054.29912935322,
+          "median": 121965.17412935322,
+          "p10": 118212.67412935322,
+          "p90": 126190.17412935322
+        }
+      }
+    },
+    "0.525": {
+      "Stock": {
+        "wallSeconds": {
+          "mean": 21600.764142019903,
+          "median": 21572.571048103477,
+          "p10": 21351.174250488337,
+          "p90": 21854.838294323512
+        },
+        "sabIdleSeconds": {
+          "mean": 107.36825256190987,
+          "median": 65.44037863555496,
+          "p10": 39.24232700357871,
+          "p90": 98.41497653108928
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21493.395889457996,
+          "median": 21487.72309778521,
+          "p10": 21291.5308900691,
+          "p90": 21703.805742485765
+        },
+        "sabAttempts": {
+          "mean": 9009.567,
+          "median": 9008.0,
+          "p10": 8852.0,
+          "p90": 9173.0
+        },
+        "successfulEpisodes": {
+          "mean": 3551.496,
+          "median": 3551.0,
+          "p10": 3528.0,
+          "p90": 3575.0
+        },
+        "externalApiCalls": {
+          "mean": 31872.842496506924,
+          "median": 31871.964690982062,
+          "p10": 31038.04944236328,
+          "p90": 32685.66082357875
+        },
+        "apiCallsSaved": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        }
+      },
+      "Turbo": {
+        "wallSeconds": {
+          "mean": 21633.924806476927,
+          "median": 21602.88682172902,
+          "p10": 21390.988424557087,
+          "p90": 21890.664293583497
+        },
+        "sabIdleSeconds": {
+          "mean": 66.87220060102337,
+          "median": 22.67185025288913,
+          "p10": 14.0,
+          "p90": 34.43914027523543
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21567.052605875906,
+          "median": 21561.379814203116,
+          "p10": 21365.187606487016,
+          "p90": 21777.462458903672
+        },
+        "sabAttempts": {
+          "mean": 9302.567,
+          "median": 9301.0,
+          "p10": 9145.0,
+          "p90": 9466.0
+        },
+        "successfulEpisodes": {
+          "mean": 3556.7198805970147,
+          "median": 3556.223880597015,
+          "p10": 3533.223880597015,
+          "p90": 3580.223880597015
+        },
+        "externalApiCalls": {
+          "mean": 8018.339276617424,
+          "median": 8018.339276617422,
+          "p10": 8018.339276617422,
+          "p90": 8018.339276617426
+        },
+        "apiCallsSaved": {
+          "mean": 25297.148556741155,
+          "median": 25296.270751216292,
+          "p10": 24462.35550259751,
+          "p90": 26109.96688381298
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 47780.74825100156,
+          "median": 47779.09026948231,
+          "p10": 46204.007826196124,
+          "p90": 49315.983250808276
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 128242.88283582088,
+          "median": 128238.43283582089,
+          "p10": 124010.93283582089,
+          "p90": 132363.4328358209
+        }
+      },
+      "TurboMinusStock": {
+        "wallSeconds": {
+          "mean": -33.160664457024005,
+          "median": -34.075578225429126,
+          "p10": -56.976669591044626,
+          "p90": -8.643614814633832
+        },
+        "sabIdleSeconds": {
+          "mean": 40.49605196088651,
+          "median": 39.581138192483195,
+          "p10": 16.68004682687315,
+          "p90": 65.0131016032803
+        },
+        "normalizedTransferSeconds": {
+          "mean": -73.6567164179105,
+          "median": -73.6567164179105,
+          "p10": -73.65671641791414,
+          "p90": -73.65671641790686
+        },
+        "sabAttempts": {
+          "mean": 293.0,
+          "median": 293.0,
+          "p10": 293.0,
+          "p90": 293.0
+        },
+        "successfulEpisodes": {
+          "mean": 5.223880597015068,
+          "median": 5.223880597015068,
+          "p10": 5.223880597015068,
+          "p90": 5.223880597015068
+        },
+        "externalApiCalls": {
+          "mean": 23854.503219889502,
+          "median": 23853.625414364637,
+          "p10": 23019.71016574586,
+          "p90": 24667.321546961328
+        },
+        "apiCallsSaved": {
+          "mean": 25297.148556741155,
+          "median": 25296.270751216292,
+          "p10": 24462.35550259751,
+          "p90": 26109.96688381298
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 47780.74825100156,
+          "median": 47779.09026948231,
+          "p10": 46204.007826196124,
+          "p90": 49315.983250808276
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 128242.88283582088,
+          "median": 128238.43283582089,
+          "p10": 124010.93283582089,
+          "p90": 132363.4328358209
+        }
+      }
+    },
+    "0.550": {
+      "Stock": {
+        "wallSeconds": {
+          "mean": 21619.70452369962,
+          "median": 21595.312480757424,
+          "p10": 21376.25601820127,
+          "p90": 21866.680918172762
+        },
+        "sabIdleSeconds": {
+          "mean": 101.17568684634143,
+          "median": 63.05057404996652,
+          "p10": 37.508857749411966,
+          "p90": 97.1906563888333
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21518.52883685328,
+          "median": 21520.623380623947,
+          "p10": 21314.616710175906,
+          "p90": 21724.79865572132
+        },
+        "sabAttempts": {
+          "mean": 9248.347,
+          "median": 9250.5,
+          "p10": 9079.9,
+          "p90": 9415.1
+        },
+        "successfulEpisodes": {
+          "mean": 3530.009,
+          "median": 3530.0,
+          "p10": 3505.9,
+          "p90": 3556.0
+        },
+        "externalApiCalls": {
+          "mean": 33008.02257385499,
+          "median": 33011.13927661742,
+          "p10": 32162.92270203179,
+          "p90": 33849.49286777764
+        },
+        "apiCallsSaved": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        }
+      },
+      "Turbo": {
+        "wallSeconds": {
+          "mean": 21659.311858175624,
+          "median": 21635.766159712737,
+          "p10": 21419.831046705458,
+          "p90": 21904.702525461
+        },
+        "sabIdleSeconds": {
+          "mean": 63.61884221786867,
+          "median": 23.0,
+          "p10": 14.0,
+          "p90": 35.484112363382664
+        },
+        "normalizedTransferSeconds": {
+          "mean": 21595.693015957757,
+          "median": 21597.787559728433,
+          "p10": 21391.780889280388,
+          "p90": 21801.9628348258
+        },
+        "sabAttempts": {
+          "mean": 9554.347,
+          "median": 9556.5,
+          "p10": 9385.9,
+          "p90": 9721.1
+        },
+        "successfulEpisodes": {
+          "mean": 3535.4816368159204,
+          "median": 3535.4726368159204,
+          "p10": 3511.3726368159205,
+          "p90": 3561.4726368159204
+        },
+        "externalApiCalls": {
+          "mean": 8018.33927661742,
+          "median": 8018.339276617418,
+          "p10": 8018.339276617418,
+          "p90": 8018.339276617422
+        },
+        "apiCallsSaved": {
+          "mean": 26501.02603108216,
+          "median": 26504.14273384459,
+          "p10": 25655.926159258957,
+          "p90": 27342.496325004813
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 50054.60794698736,
+          "median": 50060.49471283098,
+          "p10": 48458.40021108513,
+          "p90": 51643.96020874259
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 134345.89154228853,
+          "median": 134361.69154228855,
+          "p10": 130061.69154228855,
+          "p90": 138611.69154228855
+        }
+      },
+      "TurboMinusStock": {
+        "wallSeconds": {
+          "mean": -39.60733447600571,
+          "median": -40.5445281596476,
+          "p10": -62.663329809878995,
+          "p90": -16.073982692513525
+        },
+        "sabIdleSeconds": {
+          "mean": 37.55684462847277,
+          "median": 36.619650944834575,
+          "p10": 14.500849294596266,
+          "p90": 61.090196411965735
+        },
+        "normalizedTransferSeconds": {
+          "mean": -77.16417910447832,
+          "median": -77.16417910447854,
+          "p10": -77.16417910448217,
+          "p90": -77.1641791044749
+        },
+        "sabAttempts": {
+          "mean": 306.0,
+          "median": 306.0,
+          "p10": 306.0,
+          "p90": 306.0
+        },
+        "successfulEpisodes": {
+          "mean": 5.472636815920396,
+          "median": 5.472636815920396,
+          "p10": 5.472636815920396,
+          "p90": 5.472636815920396
+        },
+        "externalApiCalls": {
+          "mean": 24989.68329723757,
+          "median": 24992.8,
+          "p10": 24144.58342541437,
+          "p90": 25831.153591160222
+        },
+        "apiCallsSaved": {
+          "mean": 26501.02603108216,
+          "median": 26504.14273384459,
+          "p10": 25655.926159258957,
+          "p90": 27342.496325004813
+        },
+        "aggregateIndexerTimeAvoided": {
+          "mean": 50054.60794698736,
+          "median": 50060.49471283098,
+          "p10": 48458.40021108513,
+          "p90": 51643.96020874259
+        },
+        "aggregatePollingWaitAvoided": {
+          "mean": 134345.89154228853,
+          "median": 134361.69154228855,
+          "p10": 130061.69154228855,
+          "p90": 138611.69154228855
+        }
+      }
+    }
+  }
+}

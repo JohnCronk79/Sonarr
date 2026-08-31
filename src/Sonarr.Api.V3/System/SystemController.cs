@@ -7,6 +7,8 @@ using NzbDrone.Common.EnvironmentInfo;
 using NzbDrone.Common.Extensions;
 using NzbDrone.Core.Configuration;
 using NzbDrone.Core.Datastore;
+using NzbDrone.Core.Download.TrackedDownloads;
+using NzbDrone.Core.IndexerSearch;
 using NzbDrone.Core.Lifecycle;
 using Sonarr.Http;
 using Sonarr.Http.Validation;
@@ -27,6 +29,8 @@ namespace Sonarr.Api.V3.System
         private readonly EndpointDataSource _endpointData;
         private readonly DfaGraphWriter _graphWriter;
         private readonly DuplicateEndpointDetector _detector;
+        private readonly IAutomaticSearchResultCache _automaticSearchResultCache;
+        private readonly IDownloadClientPollingMetrics _downloadClientPollingMetrics;
 
         public SystemController(IAppFolderInfo appFolderInfo,
                                 IRuntimeInfo runtimeInfo,
@@ -38,7 +42,9 @@ namespace Sonarr.Api.V3.System
                                 IDeploymentInfoProvider deploymentInfoProvider,
                                 EndpointDataSource endpoints,
                                 DfaGraphWriter graphWriter,
-                                DuplicateEndpointDetector detector)
+                                DuplicateEndpointDetector detector,
+                                IAutomaticSearchResultCache automaticSearchResultCache,
+                                IDownloadClientPollingMetrics downloadClientPollingMetrics)
         {
             _appFolderInfo = appFolderInfo;
             _runtimeInfo = runtimeInfo;
@@ -51,12 +57,17 @@ namespace Sonarr.Api.V3.System
             _endpointData = endpoints;
             _graphWriter = graphWriter;
             _detector = detector;
+            _automaticSearchResultCache = automaticSearchResultCache;
+            _downloadClientPollingMetrics = downloadClientPollingMetrics;
         }
 
         [HttpGet("status")]
         [Produces("application/json")]
         public SystemResource GetStatus()
         {
+            var cacheStatus = _automaticSearchResultCache.GetStatus();
+            var pollingStatus = _downloadClientPollingMetrics.GetStatus();
+
             return new SystemResource
             {
                 AppName = BuildInfo.AppName,
@@ -89,7 +100,22 @@ namespace Sonarr.Api.V3.System
                 PackageVersion = _deploymentInfoProvider.PackageVersion,
                 PackageAuthor = _deploymentInfoProvider.PackageAuthor,
                 PackageUpdateMechanism = _deploymentInfoProvider.PackageUpdateMechanism,
-                PackageUpdateMechanismMessage = _deploymentInfoProvider.PackageUpdateMechanismMessage
+                PackageUpdateMechanismMessage = _deploymentInfoProvider.PackageUpdateMechanismMessage,
+                AutomaticSearchCacheEnabled = cacheStatus.Enabled,
+                AutomaticSearchCacheSizeMb = cacheStatus.CacheSizeMb,
+                AutomaticSearchCacheUsedBytes = cacheStatus.UsedBytes,
+                AutomaticSearchCacheSearches = cacheStatus.CachedSearches,
+                AutomaticSearchCacheReports = cacheStatus.CachedReports,
+                AutomaticSearchCacheHits = cacheStatus.CacheHits,
+                AutomaticSearchCacheMisses = cacheStatus.CacheMisses,
+                AutomaticSearchCacheSearchesDropped = cacheStatus.SearchesDropped,
+                AutomaticSearchCacheApiCalls = cacheStatus.ApiCalls,
+                AutomaticSearchCacheApiCallsSaved = cacheStatus.ApiCallsSaved,
+                AutomaticSearchCachePeakUsedBytes = cacheStatus.PeakUsedBytes,
+                AutomaticSearchCacheHitRate = cacheStatus.HitRate,
+                AutomaticSearchCacheTimeSavedMilliseconds = cacheStatus.CacheTimeSavedMilliseconds,
+                AutomaticSearchPollingWaitSavedMilliseconds = pollingStatus.EstimatedWaitSavedMilliseconds,
+                AutomaticSearchObservedTimeMilliseconds = cacheStatus.SearchTimeMilliseconds + pollingStatus.EstimatedWaitMilliseconds
             };
         }
 

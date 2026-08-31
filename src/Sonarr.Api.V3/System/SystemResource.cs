@@ -40,5 +40,20 @@ namespace Sonarr.Api.V3.System
         public string PackageUpdateMechanismMessage { get; set; }
         public Version DatabaseVersion { get; set; }
         public DatabaseType DatabaseType { get; set; }
+        public bool AutomaticSearchCacheEnabled { get; set; }
+        public int AutomaticSearchCacheSizeMb { get; set; }
+        public long AutomaticSearchCacheUsedBytes { get; set; }
+        public int AutomaticSearchCacheSearches { get; set; }
+        public int AutomaticSearchCacheReports { get; set; }
+        public long AutomaticSearchCacheHits { get; set; }
+        public long AutomaticSearchCacheMisses { get; set; }
+        public long AutomaticSearchCacheSearchesDropped { get; set; }
+        public long AutomaticSearchCacheApiCalls { get; set; }
+        public long AutomaticSearchCacheApiCallsSaved { get; set; }
+        public long AutomaticSearchCachePeakUsedBytes { get; set; }
+        public double AutomaticSearchCacheHitRate { get; set; }
+        public long AutomaticSearchCacheTimeSavedMilliseconds { get; set; }
+        public long AutomaticSearchPollingWaitSavedMilliseconds { get; set; }
+        public long AutomaticSearchObservedTimeMilliseconds { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using NLog;
 using NzbDrone.Common.Extensions;
 using NzbDrone.Common.Instrumentation.Extensions;
+using NzbDrone.Core.Configuration;
 using NzbDrone.Core.DataAugmentation.Scene;
 using NzbDrone.Core.DecisionEngine;
 using NzbDrone.Core.Exceptions;
@@ -32,6 +34,8 @@ namespace NzbDrone.Core.IndexerSearch
         private readonly ISeriesService _seriesService;
         private readonly IEpisodeService _episodeService;
         private readonly IMakeDownloadDecision _makeDownloadDecision;
+        private readonly IConfigService _configService;
+        private readonly IAutomaticSearchResultCache _automaticSearchResultCache;
         private readonly Logger _logger;
 
         public ReleaseSearchService(IIndexerFactory indexerFactory,
@@ -39,6 +43,8 @@ namespace NzbDrone.Core.IndexerSearch
                                 ISeriesService seriesService,
                                 IEpisodeService episodeService,
                                 IMakeDownloadDecision makeDownloadDecision,
+                                IConfigService configService,
+                                IAutomaticSearchResultCache automaticSearchResultCache,
                                 Logger logger)
         {
             _indexerFactory = indexerFactory;
@@ -46,6 +52,8 @@ namespace NzbDrone.Core.IndexerSearch
             _seriesService = seriesService;
             _episodeService = episodeService;
             _makeDownloadDecision = makeDownloadDecision;
+            _configService = configService;
+            _automaticSearchResultCache = automaticSearchResultCache;
             _logger = logger;
         }
 
@@ -513,6 +521,7 @@ namespace NzbDrone.Core.IndexerSearch
 
         private async Task<List<DownloadDecision>> Dispatch(Func<IIndexer, Task<IList<ReleaseInfo>>> searchAction, SearchCriteriaBase criteriaBase)
         {
+            var benchmarkStopwatch = Stopwatch.StartNew();
             var indexers = criteriaBase.InteractiveSearch ?
                 _indexerFactory.InteractiveSearchEnabled() :
                 _indexerFactory.AutomaticSearchEnabled();
@@ -526,7 +535,7 @@ namespace NzbDrone.Core.IndexerSearch
 
             var batch = await Task.WhenAll(tasks);
 
-            var reports = batch.SelectMany(x => x).ToList();
+            var reports = batch.SelectMany(x => x.Reports).ToList();
 
             _logger.ProgressDebug("Total of {0} reports were found for {1} from {2} indexers", reports.Count, criteriaBase, indexers.Count);
 
@@ -540,10 +549,47 @@ namespace NzbDrone.Core.IndexerSearch
                 _episodeService.UpdateLastSearchTime(criteriaBase.Episodes);
             }
 
-            return _makeDownloadDecision.GetSearchDecision(reports, criteriaBase).ToList();
+            var decisions = _makeDownloadDecision.GetSearchDecision(reports, criteriaBase).ToList();
+
+            if (_configService.EnableAutomaticSearchResultCache &&
+                !criteriaBase.InteractiveSearch &&
+                batch.Any(v => v.CacheHit) &&
+                !decisions.Any(v => v.Approved))
+            {
+                _logger.Info("Cached automatic search results for {0} produced no approved releases. Refreshing cached indexers once.", criteriaBase);
+
+                var refreshTasks = batch.Select(result => result.CacheHit ?
+                    DispatchIndexer(searchAction, result.Indexer, criteriaBase, true) :
+                    Task.FromResult(result));
+
+                batch = await Task.WhenAll(refreshTasks);
+                reports = batch.SelectMany(x => x.Reports).ToList();
+                decisions = _makeDownloadDecision.GetSearchDecision(reports, criteriaBase).ToList();
+            }
+
+            benchmarkStopwatch.Stop();
+            if (!criteriaBase.InteractiveSearch)
+            {
+                _automaticSearchResultCache.RecordSearchDuration(benchmarkStopwatch.ElapsedMilliseconds);
+            }
+
+            return decisions;
         }
 
-        private async Task<IList<ReleaseInfo>> DispatchIndexer(Func<IIndexer, Task<IList<ReleaseInfo>>> searchAction, IIndexer indexer, SearchCriteriaBase criteriaBase)
+        private async Task<IndexerSearchResult> DispatchIndexer(Func<IIndexer, Task<IList<ReleaseInfo>>> searchAction, IIndexer indexer, SearchCriteriaBase criteriaBase, bool forceRefresh = false)
+        {
+            if (_configService.EnableAutomaticSearchResultCache && !criteriaBase.InteractiveSearch)
+            {
+                var key = _automaticSearchResultCache.GetKey(indexer, criteriaBase);
+                var episodeIds = criteriaBase.Episodes.Select(episode => episode.Id).ToArray();
+                var result = await _automaticSearchResultCache.GetOrFetch(key, episodeIds, () => FetchIndexer(searchAction, indexer, criteriaBase), forceRefresh);
+                return new IndexerSearchResult(indexer, result.Reports, result.CacheHit);
+            }
+
+            return new IndexerSearchResult(indexer, await FetchIndexer(searchAction, indexer, criteriaBase), false);
+        }
+
+        private async Task<IList<ReleaseInfo>> FetchIndexer(Func<IIndexer, Task<IList<ReleaseInfo>>> searchAction, IIndexer indexer, SearchCriteriaBase criteriaBase)
         {
             try
             {
@@ -555,6 +601,20 @@ namespace NzbDrone.Core.IndexerSearch
             }
 
             return Array.Empty<ReleaseInfo>();
+        }
+
+        private class IndexerSearchResult
+        {
+            public IndexerSearchResult(IIndexer indexer, IList<ReleaseInfo> reports, bool cacheHit)
+            {
+                Indexer = indexer;
+                Reports = reports;
+                CacheHit = cacheHit;
+            }
+
+            public IIndexer Indexer { get; }
+            public IList<ReleaseInfo> Reports { get; }
+            public bool CacheHit { get; }
         }
 
         private List<DownloadDecision> DeDupeDecisions(List<DownloadDecision> decisions)

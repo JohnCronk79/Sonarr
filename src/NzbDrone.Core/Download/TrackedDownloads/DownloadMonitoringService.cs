@@ -27,6 +27,7 @@ namespace NzbDrone.Core.Download.TrackedDownloads
         private readonly IFailedDownloadService _failedDownloadService;
         private readonly ICompletedDownloadService _completedDownloadService;
         private readonly ITrackedDownloadService _trackedDownloadService;
+        private readonly IDownloadClientPollingMetrics _pollingMetrics;
         private readonly Logger _logger;
         private readonly Debouncer _refreshDebounce;
 
@@ -38,6 +39,7 @@ namespace NzbDrone.Core.Download.TrackedDownloads
                                          IFailedDownloadService failedDownloadService,
                                          ICompletedDownloadService completedDownloadService,
                                          ITrackedDownloadService trackedDownloadService,
+                                         IDownloadClientPollingMetrics pollingMetrics,
                                          Logger logger)
         {
             _downloadClientStatusService = downloadClientStatusService;
@@ -48,6 +50,7 @@ namespace NzbDrone.Core.Download.TrackedDownloads
             _failedDownloadService = failedDownloadService;
             _completedDownloadService = completedDownloadService;
             _trackedDownloadService = trackedDownloadService;
+            _pollingMetrics = pollingMetrics;
             _logger = logger;
 
             _refreshDebounce = new Debouncer(QueueRefresh, TimeSpan.FromSeconds(5));
@@ -124,8 +127,15 @@ namespace NzbDrone.Core.Download.TrackedDownloads
 
                 if (trackedDownload is { State: TrackedDownloadState.Downloading or TrackedDownloadState.ImportBlocked })
                 {
+                    var stateBeforeCheck = trackedDownload.State;
                     _failedDownloadService.Check(trackedDownload);
                     _completedDownloadService.Check(trackedDownload);
+
+                    if (trackedDownload.State != stateBeforeCheck &&
+                        trackedDownload.State is TrackedDownloadState.FailedPending or TrackedDownloadState.ImportPending)
+                    {
+                        _pollingMetrics.RecordTerminalStateDetected();
+                    }
                 }
             }
             catch (Exception e)

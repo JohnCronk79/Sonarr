@@ -11,6 +11,7 @@ using NzbDrone.Common.Http;
 using NzbDrone.Core.Configuration;
 using NzbDrone.Core.Http.CloudFlare;
 using NzbDrone.Core.Indexers.Exceptions;
+using NzbDrone.Core.IndexerSearch;
 using NzbDrone.Core.IndexerSearch.Definitions;
 using NzbDrone.Core.Localization;
 using NzbDrone.Core.Parser;
@@ -357,6 +358,7 @@ namespace NzbDrone.Core.Indexers
 
             request.HttpRequest.RateLimitKey = Definition.Id.ToString();
 
+            AutomaticSearchApiCallTracker.RecordApiCall();
             var response = await _httpClient.ExecuteAsync(request.HttpRequest);
 
             return new IndexerResponse(request, response);

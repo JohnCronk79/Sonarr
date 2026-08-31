@@ -1,0 +1,4 @@
+﻿failureShare,failureEpisodes,stockMedian,turboMedian,medianWallSaved,p10WallSaved,p90WallSaved,medianApiCallsSaved,medianApiSavingsPercent,medianIndexerTimeAvoided,medianPollingWaitAvoided
+0.5,2000,5:58:54,5:59:14,-0:00:27,-0:00:51,-0:00:01,24059,75.0,12:37:22,33:52:45
+0.525,2100,5:59:33,6:00:03,-0:00:34,-0:00:57,-0:00:09,25296,75.9,13:16:19,35:37:18
+0.55,2200,5:59:55,6:00:36,-0:00:41,-0:01:03,-0:00:16,26504,76.8,13:54:20,37:19:22

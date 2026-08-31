@@ -15,18 +15,21 @@ namespace NzbDrone.Core.IndexerSearch
         private readonly IEpisodeService _episodeService;
         private readonly ISearchForReleases _releaseSearchService;
         private readonly IProcessDownloadDecisions _processDownloadDecisions;
+        private readonly IAutomaticSearchResultCache _automaticSearchResultCache;
         private readonly Logger _logger;
 
         public SeriesSearchService(ISeriesService seriesService,
                                    IEpisodeService episodeService,
                                    ISearchForReleases releaseSearchService,
                                    IProcessDownloadDecisions processDownloadDecisions,
+                                   IAutomaticSearchResultCache automaticSearchResultCache,
                                    Logger logger)
         {
             _seriesService = seriesService;
             _episodeService = episodeService;
             _releaseSearchService = releaseSearchService;
             _processDownloadDecisions = processDownloadDecisions;
+            _automaticSearchResultCache = automaticSearchResultCache;
             _logger = logger;
         }
 
@@ -51,6 +54,7 @@ namespace NzbDrone.Core.IndexerSearch
                 {
                     var decisions = _releaseSearchService.EpisodeSearch(episode, userInvokedSearch, false).GetAwaiter().GetResult();
                     var processDecisions = _processDownloadDecisions.ProcessDecisions(decisions).GetAwaiter().GetResult();
+                    RetainAutomaticSearchResults(new[] { episode.Id }, processDecisions);
                     downloadedCount += processDecisions.Grabbed.Count;
                 }
             }
@@ -64,13 +68,29 @@ namespace NzbDrone.Core.IndexerSearch
                         continue;
                     }
 
+                    var searchedEpisodeIds = (_episodeService.GetEpisodesBySeason(message.SeriesId, season.SeasonNumber) ?? Enumerable.Empty<Episode>())
+                        .Select(episode => episode.Id)
+                        .ToArray();
                     var decisions = _releaseSearchService.SeasonSearch(message.SeriesId, season.SeasonNumber, false, true, userInvokedSearch, false).GetAwaiter().GetResult();
                     var processDecisions = _processDownloadDecisions.ProcessDecisions(decisions).GetAwaiter().GetResult();
+                    RetainAutomaticSearchResults(searchedEpisodeIds, processDecisions);
                     downloadedCount += processDecisions.Grabbed.Count;
                 }
             }
 
             _logger.ProgressInfo("Series search completed. {0} reports downloaded.", downloadedCount);
+        }
+
+        private void RetainAutomaticSearchResults(int[] searchedEpisodeIds, ProcessedDecisions processed)
+        {
+            var retainedEpisodeIds = processed.Grabbed
+                .Concat(processed.Pending)
+                .SelectMany(decision => decision.RemoteEpisode.Episodes)
+                .Select(episode => episode.Id)
+                .Distinct()
+                .ToArray();
+
+            _automaticSearchResultCache.RetainForEpisodes(searchedEpisodeIds, retainedEpisodeIds);
         }
     }
 }

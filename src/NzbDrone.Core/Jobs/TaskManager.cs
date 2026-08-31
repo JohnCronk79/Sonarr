@@ -46,7 +46,7 @@ namespace NzbDrone.Core.Jobs
         public IList<ScheduledTask> GetPending()
         {
             return _cache.Values
-                         .Where(c => c.Interval > 0 && c.LastExecution.AddMinutes(c.Interval) < DateTime.UtcNow)
+                         .Where(c => c.Interval > 0 && GetNextExecution(c) < DateTime.UtcNow)
                          .ToList();
         }
 
@@ -58,6 +58,20 @@ namespace NzbDrone.Core.Jobs
         public DateTime GetNextExecution(Type type)
         {
             var scheduledTask = _cache.Find(type.FullName);
+
+            return GetNextExecution(scheduledTask);
+        }
+
+        private DateTime GetNextExecution(ScheduledTask scheduledTask)
+        {
+            if (scheduledTask.TypeName == typeof(RefreshMonitoredDownloadsCommand).FullName)
+            {
+                var pollingInterval = _configService.EnableCustomDownloadClientPollingInterval ?
+                    _configService.DownloadClientPollingInterval :
+                    60;
+
+                return scheduledTask.LastExecution.AddSeconds(pollingInterval);
+            }
 
             return scheduledTask.LastExecution.AddMinutes(scheduledTask.Interval);
         }

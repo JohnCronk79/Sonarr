@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-08-30T16:09:41.3616875-06:00",
+  "launchedAt": "2026-08-30T13:55:08.8463842-06:00",
+  "container": "sonarr-v4-gap-fill-33:90fe8b797-instrumented-r5|running|healthy",
+  "commands": [
+    {
+      "status": "completed",
+      "count": 33
+    }
+  ],
+  "failedCommands": [],
+  "selectedWithFiles": 33,
+  "selectedMissing": 0,
+  "sonarrQueue": 0,
+  "sonarrQueueWarnings": 0,
+  "sabQueue": 0,
+  "sabPaused": false,
+  "sabHistory": 118,
+  "sabStatuses": {
+    "completed": 33,
+    "failed": 85
+  },
+  "blocklist": 96,
+  "cache": {
+    "sizeMB": 16384,
+    "usedMB": 0.0,
+    "peakMB": 0.0,
+    "searches": 0,
+    "reports": 0,
+    "hits": 425,
+    "misses": 165,
+    "apiCalls": 182,
+    "apiCallsSaved": 470,
+    "dropped": 0
+  },
+  "instrumentation": {
+    "lines": 1796,
+    "events": {
+      "cache_miss": 165,
+      "cache_store": 165,
+      "automatic_search_decisions": 118,
+      "fix_8884_decision_evaluated": 752,
+      "fix_8884_alternate_accepted": 86,
+      "download_failed_blocklisted": 85,
+      "cache_hit": 425
+    }
+  },
+  "replay": {
+    "lines": 310,
+    "events": {
+      "replay_hit": 302,
+      "replay_miss_blocked": 8
+    }
+  }
+}

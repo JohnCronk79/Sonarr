@@ -55,9 +55,12 @@ namespace NzbDrone.Core.Blocklisting
                     .Any(b => SameTorrent(b, torrentInfo));
             }
 
-            return _blocklistRepository.BlocklistedByTitle(seriesId, release.Title)
+            var titleMatches = _blocklistRepository.BlocklistedByTitle(seriesId, release.Title)
                 .Where(b => b.Protocol == DownloadProtocol.Usenet)
-                .Any(b => SameNzb(b, release));
+                .ToList();
+            var currentlyBlocklisted = titleMatches.Any(b => SameNzb(b, release));
+
+            return currentlyBlocklisted;
         }
 
         public bool BlocklistedTorrentHash(int seriesId, string hash)
@@ -107,6 +110,16 @@ namespace NzbDrone.Core.Blocklisting
         }
 
         private bool SameNzb(Blocklist item, ReleaseInfo release)
+        {
+            if (!HasSameIndexer(item, release.Indexer))
+            {
+                return false;
+            }
+
+            return item.PublishedDate == release.PublishDate;
+        }
+
+        private bool StockSameNzb(Blocklist item, ReleaseInfo release)
         {
             if (item.PublishedDate == release.PublishDate)
             {
@@ -161,9 +174,7 @@ namespace NzbDrone.Core.Blocklisting
                 return true;
             }
 
-            var difference = Math.Abs(item.Size.Value - size);
-
-            return difference <= 2.Megabytes();
+            return Math.Abs(item.Size.Value - size) <= 2.Megabytes();
         }
 
         public void Execute(ClearBlocklistCommand message)

@@ -22,6 +22,7 @@ export interface TooltipProps {
   kind?: Extract<Kind, keyof typeof styles>;
   position?: (typeof tooltipPositions.all)[number];
   canFlip?: boolean;
+  showArrow?: boolean;
 }
 function Tooltip(props: TooltipProps) {
   const {
@@ -32,6 +33,7 @@ function Tooltip(props: TooltipProps) {
     kind = kinds.DEFAULT,
     position = tooltipPositions.TOP,
     canFlip = false,
+    showArrow = true,
   } = props;
 
   const closeTimeout = useRef<ReturnType<typeof setTimeout>>();
@@ -198,7 +200,7 @@ function Tooltip(props: TooltipProps) {
                 <div
                   ref={arrowProps.ref}
                   className={
-                    isOpen
+                    isOpen && showArrow
                       ? classNames(
                           styles.arrow,
                           styles[kind],

@@ -1,0 +1,29 @@
+{
+  "classification": "TARGETED_211_8884_CACHE_16384MB_POLLING_10S",
+  "launchedAt": "08/30/2026 10:48:41",
+  "capturedAt": "2026-08-30T12:01:49.9038668-06:00",
+  "commands": 211,
+  "episodes": 211,
+  "episodesWithFiles": 145,
+  "episodesMissing": 66,
+  "sabAttempts": 523,
+  "sabCompleted": 169,
+  "sabFailed": 354,
+  "blocklist": 320,
+  "automaticSearchCache": {
+    "sizeMB": 16384,
+    "usedBytes": 423912216,
+    "peakBytes": 423912216,
+    "searches": 1055,
+    "reports": 36638,
+    "hits": 1600,
+    "misses": 1055,
+    "hitRate": 60.3,
+    "apiCalls": 1133,
+    "apiCallsSaved": 1654,
+    "searchesDropped": 0
+  },
+  "serverStatePreserved": true,
+  "finalDownloadedFilesPreserved": true,
+  "heldOriginalsPreserved": true
+}

@@ -98,6 +98,43 @@ function IndexerOptions(props) {
                 {...settings.rssSyncInterval}
               />
             </FormGroup>
+
+            <FormGroup
+              advancedSettings={advancedSettings}
+              isAdvanced={true}
+            >
+              <FormLabel>{translate('AutomaticSearchCache')}</FormLabel>
+
+              <FormInputGroup
+                type={inputTypes.CHECK}
+                name="enableAutomaticSearchResultCache"
+                helpText={translate('AutomaticSearchResultCacheHelpText')}
+                onChange={onInputChange}
+                {...settings.enableAutomaticSearchResultCache}
+              />
+            </FormGroup>
+
+            {
+              settings.enableAutomaticSearchResultCache.value ?
+                <FormGroup
+                  advancedSettings={advancedSettings}
+                  isAdvanced={true}
+                >
+                  <FormLabel>{translate('CacheSize')}</FormLabel>
+
+                  <FormInputGroup
+                    type={inputTypes.NUMBER}
+                    name="automaticSearchCacheSize"
+                    min={128}
+                    max={16384}
+                    unit="MB"
+                    helpText={translate('AutomaticSearchCacheSizeHelpText')}
+                    onChange={onInputChange}
+                    {...settings.automaticSearchCacheSize}
+                  />
+                </FormGroup> :
+                null
+            }
           </Form>
       }
     </FieldSet>

@@ -97,6 +97,50 @@ function DownloadClientOptions(props) {
                 {translate('RemoveDownloadsAlert')}
               </Alert>
             </FieldSet>
+
+            <FieldSet legend={translate('DownloadClientPolling')}>
+              <Form>
+                <FormGroup
+                  advancedSettings={advancedSettings}
+                  isAdvanced={true}
+                  size={sizes.MEDIUM}
+                >
+                  <FormLabel>{translate('EnableCustomPollingInterval')}</FormLabel>
+
+                  <FormInputGroup
+                    type={inputTypes.CHECK}
+                    name="enableCustomDownloadClientPollingInterval"
+                    helpText={translate('EnableCustomPollingIntervalHelpText')}
+                    onChange={onInputChange}
+                    {...settings.enableCustomDownloadClientPollingInterval}
+                  />
+                </FormGroup>
+
+                {
+                  settings.enableCustomDownloadClientPollingInterval.value ?
+                    <FormGroup
+                      advancedSettings={advancedSettings}
+                      isAdvanced={true}
+                      size={sizes.MEDIUM}
+                    >
+                      <FormLabel>{translate('PollingInterval')}</FormLabel>
+
+                      <FormInputGroup
+                        type={inputTypes.NUMBER}
+                        name="downloadClientPollingInterval"
+                        min={5}
+                        max={300}
+                        unit="seconds"
+                        helpTextWarning={translate('DownloadClientPollingWarning')}
+                        onChange={onInputChange}
+                        {...settings.downloadClientPollingInterval}
+                      />
+                    </FormGroup> :
+                    null
+                }
+              </Form>
+
+            </FieldSet>
           </div>
       }
     </div>

@@ -1804,6 +1804,7 @@
   "RescanAfterRefreshSeriesHelpText": "Rescan the series folder after refreshing the series",
   "RescanSeriesFolderAfterRefresh": "Rescan Series Folder after Refresh",
   "Reset": "Reset",
+  "ResetStatistics": "Reset Statistics",
   "ResetAPIKey": "Reset API Key",
   "ResetAPIKeyMessageText": "Are you sure you want to reset your API Key?",
   "ResetDefinitionTitlesHelpText": "Reset definition titles as well as values",

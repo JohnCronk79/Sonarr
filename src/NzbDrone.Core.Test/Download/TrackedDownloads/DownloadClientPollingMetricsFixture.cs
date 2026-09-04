@@ -38,5 +38,22 @@ namespace NzbDrone.Core.Test.Download.TrackedDownloads
             status.EstimatedWaitMilliseconds.Should().Be(30000);
             status.EstimatedWaitSavedMilliseconds.Should().Be(0);
         }
+
+        [Test]
+        public void should_reset_cumulative_polling_statistics()
+        {
+            var configService = new Mock<IConfigService>();
+            configService.SetupGet(v => v.EnableCustomDownloadClientPollingInterval).Returns(true);
+            configService.SetupGet(v => v.DownloadClientPollingInterval).Returns(10);
+            var subject = new DownloadClientPollingMetrics(configService.Object);
+
+            subject.RecordTerminalStateDetected();
+            subject.ResetStatistics();
+
+            var status = subject.GetStatus();
+            status.DetectedStateChanges.Should().Be(0);
+            status.EstimatedWaitMilliseconds.Should().Be(0);
+            status.EstimatedWaitSavedMilliseconds.Should().Be(0);
+        }
     }
 }

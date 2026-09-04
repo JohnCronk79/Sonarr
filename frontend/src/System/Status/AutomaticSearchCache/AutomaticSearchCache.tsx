@@ -1,14 +1,16 @@
 import classNames from 'classnames';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AppState from 'App/State/AppState';
 import FieldSet from 'Components/FieldSet';
 import Icon from 'Components/Icon';
+import SpinnerButton from 'Components/Link/SpinnerButton';
 import LoadingIndicator from 'Components/Loading/LoadingIndicator';
 import ProgressBar from 'Components/ProgressBar';
 import Tooltip from 'Components/Tooltip/Tooltip';
 import { icons, kinds, sizes } from 'Helpers/Props';
 import { fetchStatus } from 'Store/Actions/systemActions';
+import createAjaxRequest from 'Utilities/createAjaxRequest';
 import translate from 'Utilities/String/translate';
 import styles from './AutomaticSearchCache.css';
 
@@ -18,6 +20,12 @@ interface MetricProps {
   tooltip: React.ReactNode;
   value: string;
   warning?: boolean;
+}
+
+interface StatusBarProps {
+  containerClassName?: string;
+  progress: number;
+  tooltip: React.ReactNode;
 }
 
 function formatMb(bytes: number) {
@@ -53,35 +61,81 @@ function Metric({
   warning = false,
 }: MetricProps) {
   return (
-    <Tooltip
-      className={className}
-      bodyClassName={styles.tooltipBody}
-      kind={kinds.INVERSE}
-      showArrow={false}
-      anchor={
-        <>
-          <span className={styles.label}>{label}</span>
-          <span className={styles.metricSpacer} aria-hidden="true" />
-          <span
-            className={classNames(
-              styles.value,
-              warning ? styles.warningValue : undefined
-            )}
-          >
-            {value}
-            {warning ? <Icon name={icons.DANGER} kind={kinds.WARNING} /> : null}
-          </span>
-        </>
-      }
-      tooltip={tooltip}
-    />
+    <div className={className}>
+      <Tooltip
+        className={styles.labelTooltip}
+        bodyClassName={styles.tooltipBody}
+        kind={kinds.INVERSE}
+        showArrow={false}
+        anchor={<span className={styles.label}>{label}</span>}
+        tooltip={tooltip}
+      />
+      <span className={styles.metricSpacer} aria-hidden="true" />
+      <span
+        className={classNames(
+          styles.value,
+          warning ? styles.warningValue : undefined
+        )}
+      >
+        {value}
+        {warning ? <Icon name={icons.DANGER} kind={kinds.WARNING} /> : null}
+      </span>
+    </div>
+  );
+}
+
+function StatusBar({ containerClassName, progress, tooltip }: StatusBarProps) {
+  return (
+    <div className={styles.barCell}>
+      <Tooltip
+        className={styles.barTooltip}
+        bodyClassName={styles.tooltipBody}
+        kind={kinds.INVERSE}
+        showArrow={false}
+        anchor={
+          <ProgressBar
+            containerClassName={containerClassName}
+            progress={progress}
+            kind={kinds.PRIMARY}
+            size={sizes.MEDIUM}
+          />
+        }
+        tooltip={tooltip}
+      />
+    </div>
   );
 }
 
 function AutomaticSearchCache() {
   const dispatch = useDispatch();
+  const [isResettingStatistics, setIsResettingStatistics] = useState(false);
   const { isFetching, isPopulated, item } = useSelector(
     (state: AppState) => state.system.status
+  );
+
+  const onResetStatisticsPress = useCallback(() => {
+    setIsResettingStatistics(true);
+
+    createAjaxRequest({
+      url: '/system/status/automaticsearchcache/resetstatistics',
+      method: 'POST',
+    }).request.always(() => {
+      setIsResettingStatistics(false);
+      dispatch(fetchStatus());
+    });
+  }, [dispatch]);
+
+  const legend = (
+    <span className={styles.heading}>
+      <span>{translate('AutomaticSearchCache')}</span>
+      <SpinnerButton
+        isSpinning={isResettingStatistics}
+        size={sizes.SMALL}
+        onPress={onResetStatisticsPress}
+      >
+        {translate('ResetStatistics')}
+      </SpinnerButton>
+    </span>
   );
 
   useEffect(() => {
@@ -96,7 +150,7 @@ function AutomaticSearchCache() {
 
   if (isFetching && !isPopulated) {
     return (
-      <FieldSet legend={translate('AutomaticSearchCache')}>
+      <FieldSet legend={legend}>
         <LoadingIndicator />
       </FieldSet>
     );
@@ -115,45 +169,17 @@ function AutomaticSearchCache() {
   const externalApiCalls = item.automaticSearchCacheApiCalls ?? 0;
   const apiCallsSaved = item.automaticSearchCacheApiCallsSaved ?? 0;
   const totalApiCalls = externalApiCalls + apiCallsSaved;
-  const externalApiPercentage = getPercentage(externalApiCalls, totalApiCalls);
+  const apiCallsSavedPercentage = getPercentage(apiCallsSaved, totalApiCalls);
   const cacheTimeSaved = item.automaticSearchCacheTimeSavedMilliseconds ?? 0;
   const pollingWaitSaved =
     item.automaticSearchPollingWaitSavedMilliseconds ?? 0;
   const totalTimeSaved = cacheTimeSaved + pollingWaitSaved;
   const observedTime = item.automaticSearchObservedTimeMilliseconds ?? 0;
-  const totalPotentialTime = observedTime + totalTimeSaved;
-  const timeSavedPercentage = getPercentage(totalTimeSaved, totalPotentialTime);
-
-  const capacityTooltip = translate(
-    'AutomaticSearchCacheCapacitySummaryTooltip',
-    {
-      cacheSize: `${cacheSizeMb.toLocaleString()} MB`,
-      peak: formatMb(peakUsedBytes),
-      peakUtilization: peakUtilization.toFixed(1),
-      used: formatMb(usedBytes),
-      utilization: utilization.toFixed(1),
-    }
-  );
-  const lookupBarTooltip = translate('AutomaticSearchCacheLookupBarTooltip', {
-    hits: cacheHits.toLocaleString(),
-    misses: cacheMisses.toLocaleString(),
-    percentage: cacheHitPercentage.toFixed(1),
-  });
-  const apiBarTooltip = translate('AutomaticSearchCacheApiBarTooltip', {
-    actual: externalApiCalls.toLocaleString(),
-    percentage: externalApiPercentage.toFixed(1),
-    saved: apiCallsSaved.toLocaleString(),
-    total: totalApiCalls.toLocaleString(),
-  });
-  const timeBarTooltip = translate('AutomaticSearchCacheTimeBarTooltip', {
-    observed: formatDuration(observedTime),
-    percentage: timeSavedPercentage.toFixed(1),
-    saved: formatDuration(totalTimeSaved),
-    total: formatDuration(totalPotentialTime),
-  });
+  const baselineTime = observedTime + totalTimeSaved;
+  const timeSavedPercentage = getPercentage(totalTimeSaved, baselineTime);
 
   return (
-    <FieldSet legend={translate('AutomaticSearchCache')}>
+    <FieldSet legend={legend}>
       <div className={styles.metricRow}>
         <Metric
           className={styles.metricLeft}
@@ -173,20 +199,15 @@ function AutomaticSearchCache() {
           value={`${utilization.toFixed(1)}%`}
           tooltip={translate('AutomaticSearchCacheUtilizationTooltip')}
         />
-        <Tooltip
-          className={styles.bar}
-          bodyClassName={styles.tooltipBody}
-          kind={kinds.INVERSE}
-          showArrow={false}
-          anchor={
-            <ProgressBar
-              progress={utilization}
-              kind={kinds.PRIMARY}
-              size={sizes.MEDIUM}
-              width={134}
-            />
-          }
-          tooltip={capacityTooltip}
+        <StatusBar
+          progress={utilization}
+          tooltip={translate('AutomaticSearchCacheCapacitySummaryTooltip', {
+            cacheSize: `${cacheSizeMb.toLocaleString()} MB`,
+            peak: formatMb(peakUsedBytes),
+            peakUtilization: peakUtilization.toFixed(1),
+            used: formatMb(usedBytes),
+            utilization: utilization.toFixed(1),
+          })}
         />
       </div>
 
@@ -209,7 +230,7 @@ function AutomaticSearchCache() {
           value={(item.automaticSearchCacheSearches ?? 0).toLocaleString()}
           tooltip={translate('AutomaticSearchCachedSearchesTooltip')}
         />
-        <span />
+        <span className={styles.barCell} />
       </div>
 
       <div className={styles.metricRow}>
@@ -230,67 +251,46 @@ function AutomaticSearchCache() {
           label={translate('CacheMisses')}
           value={cacheMisses.toLocaleString()}
           warning={cacheMisses > 0}
-          tooltip={
-            <>
-              {translate('AutomaticSearchCacheMissesTooltip')}
-              <br />
-              {translate('AutomaticSearchCacheInitialLoadsTooltip')}
-            </>
-          }
+          tooltip={translate('AutomaticSearchCacheMissesTooltip')}
         />
-        <Tooltip
-          className={styles.bar}
-          bodyClassName={styles.tooltipBody}
-          kind={kinds.INVERSE}
-          showArrow={false}
-          anchor={
-            <ProgressBar
-              containerClassName={
-                cacheMisses > 0 ? styles.warningBar : undefined
-              }
-              progress={cacheHitPercentage}
-              kind={kinds.PRIMARY}
-              size={sizes.MEDIUM}
-              width={134}
-            />
-          }
-          tooltip={lookupBarTooltip}
+        <StatusBar
+          containerClassName={cacheMisses > 0 ? styles.warningBar : undefined}
+          progress={cacheHitPercentage}
+          tooltip={translate('AutomaticSearchCacheLookupBarTooltip', {
+            hits: cacheHits.toLocaleString(),
+            misses: cacheMisses.toLocaleString(),
+            percentage: cacheHitPercentage.toFixed(1),
+          })}
         />
       </div>
 
       <div className={styles.metricRow}>
         <Metric
           className={styles.metricLeft}
+          label={translate('TotalApiCalls')}
+          value={totalApiCalls.toLocaleString()}
+          tooltip={translate('AutomaticSearchCacheTotalApiCallsTooltip')}
+        />
+        <Metric
+          className={styles.metricMiddle}
           label={translate('ExternalApiCalls')}
           value={externalApiCalls.toLocaleString()}
           tooltip={translate('AutomaticSearchCacheApiCallsTooltip')}
         />
         <Metric
-          className={styles.metricMiddle}
+          className={styles.metricRight}
           label={translate('ApiCallsSaved')}
           value={apiCallsSaved.toLocaleString()}
           tooltip={translate('AutomaticSearchCacheApiCallsSavedTooltip')}
         />
-        <Metric
-          className={styles.metricRight}
-          label={translate('TotalApiCalls')}
-          value={totalApiCalls.toLocaleString()}
-          tooltip={translate('AutomaticSearchCacheTotalApiCallsTooltip')}
-        />
-        <Tooltip
-          className={styles.bar}
-          bodyClassName={styles.tooltipBody}
-          kind={kinds.INVERSE}
-          showArrow={false}
-          anchor={
-            <ProgressBar
-              progress={externalApiPercentage}
-              kind={kinds.PRIMARY}
-              size={sizes.MEDIUM}
-              width={134}
-            />
-          }
-          tooltip={apiBarTooltip}
+        <StatusBar
+          progress={apiCallsSavedPercentage}
+          tooltip={translate('AutomaticSearchCacheApiBarTooltip', {
+            actual: externalApiCalls.toLocaleString(),
+            percentage: apiCallsSavedPercentage.toFixed(1),
+            saved: apiCallsSaved.toLocaleString(),
+            total: totalApiCalls.toLocaleString(),
+          })}
         />
       </div>
 
@@ -299,36 +299,30 @@ function AutomaticSearchCache() {
       <div className={styles.metricRow}>
         <Metric
           className={styles.metricLeft}
+          label="Baseline Time"
+          value={formatDuration(baselineTime)}
+          tooltip={translate('AutomaticSearchTotalTimeSavedTooltip')}
+        />
+        <Metric
+          className={styles.metricMiddle}
           label={translate('CacheTimeSaved')}
           value={formatDuration(cacheTimeSaved)}
           tooltip={translate('AutomaticSearchCacheTimeSavedTooltip')}
         />
         <Metric
-          className={styles.metricMiddle}
+          className={styles.metricRight}
           label={translate('PollingWaitSaved')}
           value={formatDuration(pollingWaitSaved)}
           tooltip={translate('AutomaticSearchPollingWaitSavedTooltip')}
         />
-        <Metric
-          className={styles.metricRight}
-          label={translate('TotalTimeSaved')}
-          value={formatDuration(totalTimeSaved)}
-          tooltip={translate('AutomaticSearchTotalTimeSavedTooltip')}
-        />
-        <Tooltip
-          className={styles.bar}
-          bodyClassName={styles.tooltipBody}
-          kind={kinds.INVERSE}
-          showArrow={false}
-          anchor={
-            <ProgressBar
-              progress={timeSavedPercentage}
-              kind={kinds.PRIMARY}
-              size={sizes.MEDIUM}
-              width={134}
-            />
-          }
-          tooltip={timeBarTooltip}
+        <StatusBar
+          progress={timeSavedPercentage}
+          tooltip={translate('AutomaticSearchCacheTimeBarTooltip', {
+            observed: formatDuration(observedTime),
+            percentage: timeSavedPercentage.toFixed(1),
+            saved: formatDuration(totalTimeSaved),
+            total: formatDuration(baselineTime),
+          })}
         />
       </div>
     </FieldSet>

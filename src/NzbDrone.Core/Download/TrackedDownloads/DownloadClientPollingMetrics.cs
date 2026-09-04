@@ -7,6 +7,7 @@ namespace NzbDrone.Core.Download.TrackedDownloads
     public interface IDownloadClientPollingMetrics
     {
         void RecordTerminalStateDetected();
+        void ResetStatistics();
         DownloadClientPollingStatus GetStatus();
     }
 
@@ -55,6 +56,13 @@ namespace NzbDrone.Core.Download.TrackedDownloads
                 EstimatedWaitMilliseconds = Interlocked.Read(ref _estimatedWaitMilliseconds),
                 EstimatedWaitSavedMilliseconds = Interlocked.Read(ref _estimatedWaitSavedMilliseconds)
             };
+        }
+
+        public void ResetStatistics()
+        {
+            Interlocked.Exchange(ref _detectedStateChanges, 0);
+            Interlocked.Exchange(ref _estimatedWaitMilliseconds, 0);
+            Interlocked.Exchange(ref _estimatedWaitSavedMilliseconds, 0);
         }
     }
 }

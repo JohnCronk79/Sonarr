@@ -71,6 +71,7 @@ namespace NzbDrone.Core.IndexerSearch
         void RetainForEpisodes(IEnumerable<int> searchedEpisodeIds, IEnumerable<int> retainedEpisodeIds);
         void RecordSearchDuration(long elapsedMilliseconds);
         void Clear();
+        void ResetStatistics();
         AutomaticSearchCacheStatus GetStatus();
     }
 
@@ -257,7 +258,39 @@ namespace NzbDrone.Core.IndexerSearch
 
         public void Clear()
         {
-            Clear(false);
+            Interlocked.Increment(ref _generation);
+            _inFlight.Clear();
+
+            lock (_sync)
+            {
+                _entries.Clear();
+                _loadedKeys.Clear();
+                _reportCount = 0;
+                _usedBytes = 0;
+                _lastActivity = DateTime.UtcNow;
+                _expirationTimer.Change(InactivityLifetime, Timeout.InfiniteTimeSpan);
+            }
+        }
+
+        public void ResetStatistics()
+        {
+            long currentUsedBytes;
+
+            lock (_sync)
+            {
+                currentUsedBytes = _usedBytes;
+            }
+
+            Interlocked.Exchange(ref _hits, 0);
+            Interlocked.Exchange(ref _misses, 0);
+            Interlocked.Exchange(ref _initialLoads, 0);
+            Interlocked.Exchange(ref _refreshes, 0);
+            Interlocked.Exchange(ref _searchesDropped, 0);
+            Interlocked.Exchange(ref _apiCalls, 0);
+            Interlocked.Exchange(ref _apiCallsSaved, 0);
+            Interlocked.Exchange(ref _peakUsedBytes, currentUsedBytes);
+            Interlocked.Exchange(ref _cacheTimeSavedMilliseconds, 0);
+            Interlocked.Exchange(ref _searchTimeMilliseconds, 0);
         }
 
         public void RecordSearchDuration(long elapsedMilliseconds)
@@ -328,8 +361,8 @@ namespace NzbDrone.Core.IndexerSearch
             {
                 _configuredEnabled = enabled;
                 _configuredCacheSizeMb = cacheSizeMb;
-                Clear(true);
-                _logger.Info("Automatic search cache configuration changed; cache and statistics reset (enabled={0}, size={1} MB)", enabled, cacheSizeMb);
+                Clear();
+                _logger.Info("Automatic search cache configuration changed; cache entries cleared and cumulative statistics retained (enabled={0}, size={1} MB)", enabled, cacheSizeMb);
             }
         }
 
@@ -610,38 +643,6 @@ namespace NzbDrone.Core.IndexerSearch
                     _loadedKeys.Remove(key);
                 }
             }
-        }
-
-        private void Clear(bool resetStatistics)
-        {
-            Interlocked.Increment(ref _generation);
-            _inFlight.Clear();
-
-            lock (_sync)
-            {
-                _entries.Clear();
-                _loadedKeys.Clear();
-                _reportCount = 0;
-                _usedBytes = 0;
-                _lastActivity = DateTime.UtcNow;
-                _expirationTimer.Change(InactivityLifetime, Timeout.InfiniteTimeSpan);
-            }
-
-            if (resetStatistics)
-            {
-                Interlocked.Exchange(ref _hits, 0);
-                Interlocked.Exchange(ref _misses, 0);
-                Interlocked.Exchange(ref _initialLoads, 0);
-                Interlocked.Exchange(ref _refreshes, 0);
-                Interlocked.Exchange(ref _searchesDropped, 0);
-                Interlocked.Exchange(ref _apiCalls, 0);
-                Interlocked.Exchange(ref _apiCallsSaved, 0);
-                Interlocked.Exchange(ref _peakUsedBytes, 0);
-                Interlocked.Exchange(ref _cacheTimeSavedMilliseconds, 0);
-                Interlocked.Exchange(ref _searchTimeMilliseconds, 0);
-            }
-
-            _logger.Debug("Automatic search result cache cleared");
         }
 
         private static long EstimateSize(IEnumerable<ReleaseInfo> reports)

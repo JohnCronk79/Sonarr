@@ -138,6 +138,14 @@ namespace Sonarr.Api.V3.System
             return _detector.GetDuplicateEndpoints(_endpointData);
         }
 
+        [HttpPost("status/automaticsearchcache/resetstatistics")]
+        public IActionResult ResetAutomaticSearchCacheStatistics()
+        {
+            _automaticSearchResultCache.ResetStatistics();
+            _downloadClientPollingMetrics.ResetStatistics();
+            return NoContent();
+        }
+
         [HttpPost("shutdown")]
         public object Shutdown()
         {

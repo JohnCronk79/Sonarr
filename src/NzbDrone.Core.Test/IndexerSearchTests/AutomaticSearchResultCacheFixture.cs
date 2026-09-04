@@ -5,6 +5,7 @@ using Moq;
 using NLog;
 using NUnit.Framework;
 using NzbDrone.Core.Configuration;
+using NzbDrone.Core.Configuration.Events;
 using NzbDrone.Core.Indexers;
 using NzbDrone.Core.IndexerSearch;
 using NzbDrone.Core.IndexerSearch.Definitions;
@@ -19,16 +20,21 @@ namespace NzbDrone.Core.Test.IndexerSearchTests
     public class AutomaticSearchResultCacheFixture
     {
         private AutomaticSearchResultCache _subject;
+        private Mock<IConfigService> _configService;
         private Mock<IEpisodeService> _episodeService;
+        private bool _cacheEnabled;
+        private int _cacheSizeMb;
 
         [SetUp]
         public void SetUp()
         {
-            var configService = new Mock<IConfigService>();
+            _cacheEnabled = true;
+            _cacheSizeMb = 256;
+            _configService = new Mock<IConfigService>();
             _episodeService = new Mock<IEpisodeService>();
-            configService.SetupGet(v => v.EnableAutomaticSearchResultCache).Returns(true);
-            configService.SetupGet(v => v.AutomaticSearchCacheSize).Returns(256);
-            _subject = new AutomaticSearchResultCache(configService.Object, _episodeService.Object, LogManager.GetCurrentClassLogger());
+            _configService.SetupGet(v => v.EnableAutomaticSearchResultCache).Returns(() => _cacheEnabled);
+            _configService.SetupGet(v => v.AutomaticSearchCacheSize).Returns(() => _cacheSizeMb);
+            _subject = new AutomaticSearchResultCache(_configService.Object, _episodeService.Object, LogManager.GetCurrentClassLogger());
         }
 
         [Test]
@@ -319,6 +325,71 @@ namespace NzbDrone.Core.Test.IndexerSearchTests
             };
 
             _subject.GetKey(indexer.Object, first).Should().NotBe(_subject.GetKey(indexer.Object, second));
+        }
+
+        [Test]
+        public async Task should_retain_cumulative_statistics_when_cache_entries_are_cleared()
+        {
+            await _subject.GetOrFetch("series", new[] { 5 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo> { new ReleaseInfo { Guid = "one" } }));
+            await _subject.GetOrFetch("series", new[] { 5 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo>()));
+
+            var before = _subject.GetStatus();
+            _subject.Clear();
+            var after = _subject.GetStatus();
+
+            before.CacheHits.Should().Be(1);
+            before.CachedReports.Should().Be(1);
+            before.PeakUsedBytes.Should().BeGreaterThan(0);
+            after.CachedSearches.Should().Be(0);
+            after.UsedBytes.Should().Be(0);
+            after.CacheHits.Should().Be(before.CacheHits);
+            after.PeakUsedBytes.Should().Be(before.PeakUsedBytes);
+        }
+
+        [Test]
+        public async Task should_reset_statistics_without_clearing_cached_reports()
+        {
+            await _subject.GetOrFetch("series", new[] { 6 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo> { new ReleaseInfo { Guid = "one" } }));
+            await _subject.GetOrFetch("series", new[] { 6 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo>()));
+            _subject.RecordSearchDuration(500);
+
+            var usedBytes = _subject.GetStatus().UsedBytes;
+            _subject.ResetStatistics();
+            var status = _subject.GetStatus();
+
+            status.CachedSearches.Should().Be(1);
+            status.CachedReports.Should().Be(1);
+            status.UsedBytes.Should().Be(usedBytes);
+            status.PeakUsedBytes.Should().Be(usedBytes);
+            status.CacheHits.Should().Be(0);
+            status.CacheMisses.Should().Be(0);
+            status.ApiCalls.Should().Be(0);
+            status.ApiCallsSaved.Should().Be(0);
+            status.CacheTimeSavedMilliseconds.Should().Be(0);
+            status.SearchTimeMilliseconds.Should().Be(0);
+        }
+
+        [Test]
+        public async Task should_retain_cumulative_statistics_when_cache_configuration_changes()
+        {
+            await _subject.GetOrFetch("series", new[] { 7 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo> { new ReleaseInfo { Guid = "one" } }));
+            await _subject.GetOrFetch("series", new[] { 7 }, () =>
+                Task.FromResult<IList<ReleaseInfo>>(new List<ReleaseInfo>()));
+
+            var before = _subject.GetStatus();
+            _cacheSizeMb = 512;
+            _subject.Handle(new ConfigSavedEvent());
+            var after = _subject.GetStatus();
+
+            after.CacheSizeMb.Should().Be(512);
+            after.CachedSearches.Should().Be(0);
+            after.CacheHits.Should().Be(before.CacheHits);
+            after.PeakUsedBytes.Should().Be(before.PeakUsedBytes);
         }
     }
 }
